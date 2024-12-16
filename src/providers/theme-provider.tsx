@@ -1,7 +1,7 @@
 "use client";
 import {ThemeProvider as NextThemesProvider} from "next-themes";
 import type {ThemeProviderProps} from "../../node_modules/next-themes/dist/index";
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 
 export function ThemeProvider({children, ...props}: ThemeProviderProps) {
   const [mounted, setMounted] = useState(false);
@@ -13,6 +13,10 @@ export function ThemeProvider({children, ...props}: ThemeProviderProps) {
   if (!mounted) {
     return null; // Prevent rendering until mounted
   }
- 
-  return <NextThemesProvider attribute="class" defaultTheme="light" {...props}>{children}</NextThemesProvider>;
+
+  return (
+    <NextThemesProvider attribute="class" defaultTheme="light" {...props}>
+      {children}
+    </NextThemesProvider>
+  );
 }

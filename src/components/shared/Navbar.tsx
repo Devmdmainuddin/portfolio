@@ -1,17 +1,19 @@
+"use client"
 import {Mails, Menu} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-
+import {Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger} from "@/components/ui/sheet";
+import { usePathname } from "next/navigation";
+type NavLink = {
+  href: string;
+  text: string;
+  icon: string;
+};
 const Navbar = () => {
-  const navlink = [
+  const pathName = usePathname()
+
+  const navlink: NavLink[]  = [
     {
       href: "/",
       text: "Home",
@@ -50,10 +52,7 @@ const Navbar = () => {
   ];
   return (
     <div className="dark:bg-[#131313] bg-gray-100 sticky top-0 z-50 border border-[#d5d5d5] dark:border-[#858484] border-b">
-      <div
-        id="nav"
-        className=" py-5  nav max-w-[1280px] mx-auto px-6 lg:px-8 font-Montserrat  "
-      >
+      <div id="nav" className=" py-5  nav max-w-[1280px] mx-auto px-6 lg:px-8 font-Montserrat  ">
         <div className=" flex items-center justify-between z-40">
           <Link href="" className="flex items-center gap-3 uppercase">
             <Image src="/icn.png" alt="" width={220} height={220} className="w-10 h-10  " />
@@ -63,7 +62,9 @@ const Navbar = () => {
           <ul className="items-center hidden gap-6 lg:flex">
             {navlink.map((item, idx) => (
               <li key={idx}>
-                <Link href={item.href} className="dark:text-white text-sm">{item.text}</Link>
+                <Link href={item.href}  className={`${pathName === item.href && 'text-green-600 dark:text-green-600'} hover:text-green-600 dark:hover:text-green-600 dark:text-white text-sm transition-all duration-700 capitalize`}>
+                  {item.text}
+                </Link>
               </li>
             ))}
           </ul>
@@ -75,7 +76,10 @@ const Navbar = () => {
             <div className="info">
               <p className="text-sm ">Have any Questions?</p>
               <h5 className="text-[16px] text-sm tracking-[.5px]  ">
-                <a className="text-[#282828] dark:text-white font-normal" href="mailto:devmdmainuddin@gmail.com">
+                <a
+                  className="text-[#282828] dark:text-white font-normal"
+                  href="mailto:devmdmainuddin@gmail.com"
+                >
                   devmdmainuddin@gmail.com
                 </a>
               </h5>
