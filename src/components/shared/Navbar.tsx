@@ -1,0 +1,130 @@
+import {Mails, Menu} from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+
+const Navbar = () => {
+  const navlink = [
+    {
+      href: "/",
+      text: "Home",
+      icon: "/icn.png",
+    },
+    {
+      href: "/about",
+      text: "About",
+      icon: "/icn.png",
+    },
+    {
+      href: "/services",
+      text: "Services",
+      icon: "/icn.png",
+    },
+    {
+      href: "/contact",
+      text: "Contact",
+      icon: "/icn.png",
+    },
+    {
+      href: "/blog",
+      text: "Blog",
+      icon: "/icn.png",
+    },
+    {
+      href: "/faq",
+      text: "FAQ",
+      icon: "/icn.png",
+    },
+    {
+      href: "/careers",
+      text: "Careers",
+      icon: "/icn.png",
+    },
+  ];
+  return (
+    <div className="dark:bg-[#131313] bg-gray-100 sticky top-0 z-50 border border-[#d5d5d5] dark:border-[#858484] border-b">
+      <div
+        id="nav"
+        className=" py-5  nav max-w-[1280px] mx-auto px-6 lg:px-8 font-Montserrat  "
+      >
+        <div className=" flex items-center justify-between z-40">
+          <Link href="" className="flex items-center gap-3 uppercase">
+            <Image src="/icn.png" alt="" width={220} height={220} className="w-10 h-10  " />
+            mainuddin
+          </Link>
+
+          <ul className="items-center hidden gap-6 lg:flex">
+            {navlink.map((item, idx) => (
+              <li key={idx}>
+                <Link href={item.href} className="dark:text-white text-sm">{item.text}</Link>
+              </li>
+            ))}
+          </ul>
+
+          <div className="md:flex items-center gap-x-3 hidden">
+            <div className="md:text-3xl text-xl text-green-600">
+              <Mails className="moveup" />
+            </div>
+            <div className="info">
+              <p className="text-sm ">Have any Questions?</p>
+              <h5 className="text-[16px] text-sm tracking-[.5px]  ">
+                <a className="text-[#282828] dark:text-white font-normal" href="mailto:devmdmainuddin@gmail.com">
+                  devmdmainuddin@gmail.com
+                </a>
+              </h5>
+            </div>
+          </div>
+
+          <div className="lg:hidden">
+            <Sheet>
+              <SheetTrigger>
+                {" "}
+                <Menu className="text-2xl  -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50" />
+              </SheetTrigger>
+              <SheetContent>
+                <SheetHeader>
+                  <SheetTitle>
+                    <div>
+                      <Link href="" className="flex items-center gap-3 uppercase">
+                        <Image
+                          src="/icn.png"
+                          alt=""
+                          width={220}
+                          height={220}
+                          className="w-10 h-10 "
+                        />
+                        mainuddin
+                      </Link>
+                    </div>
+                  </SheetTitle>
+                </SheetHeader>
+                <div className=" z-10  w-full">
+                  <div className="p-5 bg-white border rounded shadow-sm mt-6">
+                    <nav>
+                      <ul className="  flex items-center  gap-6 flex-col ">
+                        {navlink.map((item, idx) => (
+                          <li key={idx}>
+                            <Link href={item.href}>{item.text}</Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Navbar;
