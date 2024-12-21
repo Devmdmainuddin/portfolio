@@ -3,6 +3,9 @@ import {Moon, Sun} from "lucide-react";
 import {useTheme} from "next-themes";
 import {Button} from "@/components/ui/button";
 import {useEffect, useState} from "react";
+import Contact from "@/components/shared/Contact";
+import Hero from "@/components/shared/Hero";
+
 
 export default function Home() {
   const {theme, setTheme} = useTheme();
@@ -16,6 +19,8 @@ export default function Home() {
 
   return (
     <div>
+      <Hero/>
+      <Contact/>
       <Button
         variant="outline"
         size="icon"

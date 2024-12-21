@@ -1,10 +1,46 @@
+
 import type {Metadata} from "next";
 import {Geist, Geist_Mono} from "next/font/google";
-import "../styles/globals.css";
+import "./globals.css";
 import {ThemeProvider} from "@/providers/theme-provider";
 import Navbar from "@/components/shared/Navbar";
 import Link from "next/link";
-import {Facebook, Github, Instagram, Linkedin} from "lucide-react";
+import {Facebook, Github, Instagram, Linkedin, MessageSquareText, TvMinimalPlay, UserRound} from "lucide-react";
+import {HomeIcon, ScrollText, SunMoon} from "lucide-react";
+import {Dock, DockIcon, DockItem, DockLabel} from "@/components/ui/dock";
+
+const data = [
+  {
+    title: "Home",
+    icon: <HomeIcon className="h-full w-full text-neutral-600 dark:text-neutral-300" />,
+    href: "/",
+  },
+  {
+    title: "About",
+    icon: <UserRound  className="h-full w-full text-neutral-600 dark:text-neutral-300" />,
+    href: "about#",
+  },
+  {
+    title: "Services",
+    icon: <TvMinimalPlay className="h-full w-full text-neutral-600 dark:text-neutral-300" />,
+    href: "services",
+  },
+  {
+    title: "Contact",
+    icon: <MessageSquareText  className="h-full w-full text-neutral-600 dark:text-neutral-300" />,
+    href: "Contact",
+  },
+  {
+    title: "Blog",
+    icon: <ScrollText className="h-full w-full text-neutral-600 dark:text-neutral-300" />,
+    href: "blog",
+  },
+  {
+    title: "Theme",
+    icon: <SunMoon className="h-full w-full text-neutral-600 dark:text-neutral-300" />,
+    href: "#",
+  },
+];
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,28 +72,28 @@ export default function RootLayout({
         <div className=" flex flex-col fixed top-[40%] left-0  ">
           <li
             className={
-              "flex justify-center items-center w-[180px] h-14 bg-[#e6e9ebfc] text-2xl px-4 text-white rounded-tr-md rounded-br-md  ml-[-132px] hover:ml-0 transition-all duration-300"
+              "flex justify-center items-center w-[180px]  bg-[#e6e9ebfc] text-sm py-2 px-4 text-white rounded-tr-md rounded-br-md  ml-[-132px] hover:ml-0 transition-all duration-300"
             }
           >
             <Link
               href="https://www.facebook.com/profile.php?id=100006959283779"
               className="flex justify-between items-center w-full text-[#03a9f4]"
             >
-              Facebook <Facebook size={25} />
+              Facebook <Facebook size={22} />
             </Link>
           </li>
           <li
             className={
-              "flex justify-center items-center w-[180px] h-14 bg-[#e6e9ebfc] text-2xl px-4 rounded-tr-md rounded-br-md text-[#fe0761] ml-[-132px] hover:ml-0 transition-all duration-300"
+              "flex justify-center items-center w-[180px] bg-[#e6e9ebfc] text-sm py-2 px-4 rounded-tr-md rounded-br-md text-[#fe0761] ml-[-132px] hover:ml-0 transition-all duration-300"
             }
           >
             <Link href="" className="flex justify-between items-center w-full">
-              Instagram <Instagram size={25} />{" "}
+              Instagram <Instagram size={22} />{" "}
             </Link>
           </li>
           <li
             className={
-              "flex justify-center items-center w-[180px] h-14 bg-[#e6e9ebfb] text-2xl px-4 text-[#27ace0] rounded-tr-md rounded-br-md  ml-[-132px] hover:ml-0 transition-all duration-300"
+              "flex justify-center items-center w-[180px]  bg-[#e6e9ebfb] text-sm py-2 px-4 text-[#27ace0] rounded-tr-md rounded-br-md  ml-[-132px] hover:ml-0 transition-all duration-300"
             }
           >
             <Link
@@ -65,129 +101,42 @@ export default function RootLayout({
               className="flex justify-between items-center w-full"
             >
               {" "}
-              LinkedinIn <Linkedin size={25} />{" "}
+              LinkedinIn <Linkedin size={22} />{" "}
             </Link>
           </li>
           <li
             className={
-              "flex justify-center items-center w-[180px] h-14 bg-[#e8e8e8]  text-2xl px-4 text-[#1f2328] rounded-tr-md rounded-br-md  ml-[-132px] hover:ml-0 transition-all duration-300"
+              "flex justify-center items-center w-[180px]  bg-[#e8e8e8]  text-sm py-2 px-4 text-[#1f2328] rounded-tr-md rounded-br-md  ml-[-132px] hover:ml-0 transition-all duration-300"
             }
           >
             <Link
               href="https://github.com/Devmdmainuddin/"
-              className="flex justify-between items-center w-full"
+              className="flex justify-between items-center w-full "
             >
               {" "}
-              Github <Github size={25} />{" "}
+              Github <Github size={22} />{" "}
             </Link>
           </li>
         </div>
-        <section className="footerNav">
-          <nav className="bg-[#00000076] dark:bg-slate-200 flex gap-2  fixed left-1/2 bottom-8 -translate-x-1/2 py-2 px-8 rounded-full z-50 ">
-            <Link
-              href="/"
-              className=" text-2xl p-3 bg-transparent text-[#ffffff99] dark:text-[#00000076] dark:hover:text-white hover:bg-green-600 rounded-full transition-all duration-500"
-              data-tooltip-id="Home"
-              data-tooltip-content="Home!"
-              data-tooltip-place="top"
-            >
-              {/* <Tooltip id="Home" /> */}
-              <svg
-                stroke="currentColor"
-                fill="currentColor"
-                strokeWidth="0"
-                viewBox="0 0 1024 1024"
-                height="1em"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
+        
+        <div className=" fixed bottom-2 left-1/2 max-w-full -translate-x-1/2">
+          <Dock className="items-end pb-3">
+            {data.map((item, idx) => (
+               <Link key={idx} href={item.href}>
+              <DockItem
+                
+                className="aspect-square rounded-full bg-gray-200 dark:bg-neutral-800"
               >
-                <path d="M946.5 505L560.1 118.8l-25.9-25.9a31.5 31.5 0 0 0-44.4 0L77.5 505a63.9 63.9 0 0 0-18.8 46c.4 35.2 29.7 63.3 64.9 63.3h42.5V940h691.8V614.3h43.4c17.1 0 33.2-6.7 45.3-18.8a63.6 63.6 0 0 0 18.7-45.3c0-17-6.7-33.1-18.8-45.2zM568 868H456V664h112v204zm217.9-325.7V868H632V640c0-22.1-17.9-40-40-40H432c-22.1 0-40 17.9-40 40v228H238.1V542.3h-96l370-369.7 23.1 23.1L882 542.3h-96.1z"></path>
-              </svg>
-            </Link>
-            <Link
-              href="about"
-              data-tooltip-id="about"
-              data-tooltip-content="about"
-              data-tooltip-place="top"
-              className={` text-2xl p-3 bg-transparent text-[#ffffff99] dark:text-[#00000076] dark:hover:text-white hover:bg-green-600 rounded-full transition-all duration-500`}
-            >
-              {/* <Tooltip id="about" /> */}
-              <svg
-                stroke="currentColor"
-                fill="currentColor"
-                strokeWidth="0"
-                viewBox="0 0 1024 1024"
-                height="1em"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M858.5 763.6a374 374 0 0 0-80.6-119.5 375.63 375.63 0 0 0-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 0 0-80.6 119.5A371.7 371.7 0 0 0 136 901.8a8 8 0 0 0 8 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 0 0 8-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"></path>
-              </svg>
-            </Link>
-            <Link
-              href="experience"
-              data-tooltip-id="service"
-              data-tooltip-content="service"
-              data-tooltip-place="top"
-              className=" text-2xl p-3 bg-transparent text-[#ffffff99] dark:text-[#00000076] dark:hover:text-white hover:bg-green-600 rounded-full transition-all duration-500"
-            >
-              {/* <Tooltip id="service" /> */}
-              <svg
-                stroke="currentColor"
-                fill="currentColor"
-                strokeWidth="0"
-                viewBox="0 0 24 24"
-                height="1em"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M6 22h15v-2H6.012C5.55 19.988 5 19.805 5 19s.55-.988 1.012-1H21V4c0-1.103-.897-2-2-2H6c-1.206 0-3 .799-3 3v14c0 2.201 1.794 3 3 3zM5 8V5c0-.805.55-.988 1-1h13v12H5V8z"></path>
-                <path d="M8 6h9v2H8z"></path>
-              </svg>
-            </Link>
-            <Link
-              href="services"
-              data-tooltip-id="project"
-              data-tooltip-content="project "
-              data-tooltip-place="top"
-              className=" text-2xl p-3 bg-transparent text-[#ffffff99] dark:text-[#00000076] dark:hover:text-white hover:bg-green-600 rounded-full transition-all duration-500"
-            >
-              {/* <Tooltip id="project" /> */}
-              <svg
-                stroke="currentColor"
-                fill="currentColor"
-                strokeWidth="0"
-                viewBox="0 0 24 24"
-                height="1em"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M3.16113 4.46875C5.58508 2.0448 9.44716 1.9355 12.0008 4.14085C14.5528 1.9355 18.4149 2.0448 20.8388 4.46875C23.2584 6.88836 23.3716 10.741 21.1785 13.2947L13.4142 21.0858C12.6686 21.8313 11.4809 21.8652 10.6952 21.1874L10.5858 21.0858L2.82141 13.2947C0.628282 10.741 0.741522 6.88836 3.16113 4.46875ZM4.57534 5.88296C2.86819 7.59011 2.81942 10.3276 4.42902 12.0937L4.57534 12.2469L12 19.6715L17.3026 14.3675L13.7677 10.8327L12.7071 11.8934C11.5355 13.0649 9.636 13.0649 8.46443 11.8934C7.29286 10.7218 7.29286 8.8223 8.46443 7.65073L10.5656 5.54823C8.85292 4.17713 6.37076 4.23993 4.7286 5.73663L4.57534 5.88296ZM13.0606 8.71139C13.4511 8.32086 14.0843 8.32086 14.4748 8.71139L18.7168 12.9533L19.4246 12.2469C21.1819 10.4896 21.1819 7.64032 19.4246 5.88296C17.7174 4.17581 14.9799 4.12704 13.2139 5.73663L13.0606 5.88296L9.87864 9.06494C9.51601 9.42757 9.49011 9.99942 9.80094 10.3919L9.87864 10.4792C10.2413 10.8418 10.8131 10.8677 11.2056 10.5569L11.2929 10.4792L13.0606 8.71139Z"></path>
-              </svg>
-            </Link>
-            <Link
-              href="contact"
-              data-tooltip-id="contact"
-              data-tooltip-content="contact"
-              data-tooltip-place="top"
-              className=" text-2xl p-3 bg-transparent text-[#ffffff99] dark:text-[#00000076] dark:hover:text-white hover:bg-green-600 rounded-full transition-all duration-500"
-            >
-              {/* <Tooltip id="contact" /> */}
-              <svg
-                stroke="currentColor"
-                fill="currentColor"
-                strokeWidth="0"
-                viewBox="0 0 24 24"
-                height="1em"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M16 2H8C4.691 2 2 4.691 2 8v13a1 1 0 0 0 1 1h13c3.309 0 6-2.691 6-6V8c0-3.309-2.691-6-6-6zm4 14c0 2.206-1.794 4-4 4H4V8c0-2.206 1.794-4 4-4h8c2.206 0 4 1.794 4 4v8z"></path>
-                <path d="M7 9h10v2H7zm0 4h7v2H7z"></path>
-              </svg>
-            </Link>
-          </nav>
-        </section>
+               
+                <DockLabel>{item.title}</DockLabel>
+               
+              
+                <DockIcon>{item.icon}</DockIcon>
+              </DockItem>
+              </Link>
+            ))}
+          </Dock>
+        </div>
       </body>
     </html>
   );

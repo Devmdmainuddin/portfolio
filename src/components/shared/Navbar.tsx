@@ -1,19 +1,19 @@
-"use client"
+"use client";
 import {Mails, Menu} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import {Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger} from "@/components/ui/sheet";
-import { usePathname } from "next/navigation";
+import {usePathname} from "next/navigation";
 type NavLink = {
   href: string;
   text: string;
   icon: string;
 };
 const Navbar = () => {
-  const pathName = usePathname()
+  const pathName = usePathname();
 
-  const navlink: NavLink[]  = [
+  const navlink: NavLink[] = [
     {
       href: "/",
       text: "Home",
@@ -62,7 +62,10 @@ const Navbar = () => {
           <ul className="items-center hidden gap-6 lg:flex">
             {navlink.map((item, idx) => (
               <li key={idx}>
-                <Link href={item.href}  className={`${pathName === item.href && 'text-green-600 dark:text-green-600'} hover:text-green-600 dark:hover:text-green-600 dark:text-white text-sm transition-all duration-700 capitalize`}>
+                <Link
+                  href={item.href}
+                  className={`${pathName === item.href && "text-green-600 dark:text-green-500"} hover:text-green-600 dark:hover:text-green-600 dark:text-white text-sm transition-all duration-700 capitalize`}
+                >
                   {item.text}
                 </Link>
               </li>
@@ -110,12 +113,17 @@ const Navbar = () => {
                   </SheetTitle>
                 </SheetHeader>
                 <div className=" z-10  w-full">
-                  <div className="p-5 bg-white border rounded shadow-sm mt-6">
+                  <div className="p-5  border rounded shadow-sm mt-6">
                     <nav>
                       <ul className="  flex items-center  gap-6 flex-col ">
                         {navlink.map((item, idx) => (
                           <li key={idx}>
-                            <Link href={item.href}>{item.text}</Link>
+                            <Link 
+                            href={item.href}
+                            className={`${pathName === item.href && "text-green-600 dark:text-green-500"} hover:text-green-600 dark:hover:text-green-600 dark:text-white text-sm transition-all duration-700 capitalize`}
+                            >
+                            {item.text}
+                            </Link>
                           </li>
                         ))}
                       </ul>
