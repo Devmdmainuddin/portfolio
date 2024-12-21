@@ -118,11 +118,11 @@ const Navbar = () => {
                       <ul className="  flex items-center  gap-6 flex-col ">
                         {navlink.map((item, idx) => (
                           <li key={idx}>
-                            <Link 
-                            href={item.href}
-                            className={`${pathName === item.href && "text-green-600 dark:text-green-500"} hover:text-green-600 dark:hover:text-green-600 dark:text-white text-sm transition-all duration-700 capitalize`}
+                            <Link
+                              href={item.href}
+                              className={`${pathName === item.href && "text-green-600 dark:text-green-500"} hover:text-green-600 dark:hover:text-green-600 dark:text-white text-sm transition-all duration-700 capitalize`}
                             >
-                            {item.text}
+                              {item.text}
                             </Link>
                           </li>
                         ))}

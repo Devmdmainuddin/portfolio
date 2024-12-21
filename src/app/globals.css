@@ -22,6 +22,19 @@ body {
   }
 }
 
+
+.secleup{
+  animation: scaleUp 4s ease-in-out infinite;
+}
+
+@keyframes scaleUp {
+
+  0%,
+  100% { transform: translateY(0) scale(1); }
+
+  50% { transform: translateY(0) scale(1.15);}
+
+}
 @layer base {
   :root {
     --background: 0 0% 100%;

@@ -54,7 +54,6 @@ const Home = () => {
       </Button>
       <div>
         <div className="space-y-4">
-
           <Accordion type="single" collapsible className="w-[600px] space-y-2" defaultValue="3">
             {items.map((item) => (
               <AccordionItem

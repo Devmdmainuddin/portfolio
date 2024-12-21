@@ -1,11 +1,14 @@
+import Container from "@/components/shared/Container";
 import {Magnetic} from "@/components/ui/magnetic";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const About = () => {
   const springOptions = {bounce: 0.1};
   return (
-    <div>
+    <div className="my-[120px]">
+      <Container>
       <div className="flex justify-between items-center flex-col lg:flex-row gap-6">
         <div className=" w-[425px]">
           <Image
@@ -26,6 +29,7 @@ const About = () => {
             scratch and fixing website bug & error.
           </p>
           <ul className="menus capitalize mt-6">
+          {/* <li className="mb-2.5"><Link className="inline-block text-lg font-medium text-gray-400 hover:text-green-600 transition duration-300" href="#">Service</Link></li> */}
             <li className=" text-sm leading-8 font-Montserrat ">
               <span className="text-black dark:text-[#858585] text-[16px] font-semibold">
                 Name :{" "}
@@ -80,9 +84,10 @@ const About = () => {
               </Magnetic>
             </a>
           </Magnetic>
-         
         </div>
       </div>
+      </Container>
+      
     </div>
   );
 };

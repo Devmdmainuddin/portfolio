@@ -1,8 +1,8 @@
-import { MailPlus, MapPinPlus, PhoneCall} from "lucide-react";
-import { Magnetic } from "../ui/magnetic";
+import {MailPlus, MapPinPlus, PhoneCall} from "lucide-react";
+import {Magnetic} from "../ui/magnetic";
 
 const Contact = () => {
-    const springOptions = {bounce: 0.1};
+  const springOptions = {bounce: 0.1};
   return (
     <div className="max-w-screen-xl mx-auto my-7 lg:px-20" id="contact">
       <form action="" method="post">
@@ -49,54 +49,47 @@ const Contact = () => {
             ></textarea>
           </div>
           <div className="w-1/2 my-2 lg:w-1/4 ">
-            
-            <Magnetic
-                            intensity={0.2}
-                            springOptions={springOptions}
-                            actionArea="global"
-                            range={200}
-                          >
-                            <button
-                              type="submit"
-                              className="w-full p-3 text-sm font-bold tracking-wide text-gray-100 uppercase bg-green-600 rounded  hover:bg-blue-700-lg focus:outline-none focus:shadow-outline"
-                             
-                            >
-                              <Magnetic
-                                intensity={0.1}
-                                springOptions={springOptions}
-                                actionArea="global"
-                                range={200}
-                              >
-                                <span>Send Message</span>
-                              </Magnetic>
-                            </button>
-                          </Magnetic>
+            <Magnetic intensity={0.2} springOptions={springOptions} actionArea="global" range={200}>
+              <button
+                type="submit"
+                className="w-full p-3 text-sm font-bold tracking-wide text-gray-100 uppercase bg-green-600 rounded  hover:bg-blue-700-lg focus:outline-none focus:shadow-outline"
+              >
+                <Magnetic
+                  intensity={0.1}
+                  springOptions={springOptions}
+                  actionArea="global"
+                  range={200}
+                >
+                  <span>Send Message</span>
+                </Magnetic>
+              </button>
+            </Magnetic>
           </div>
         </div>
       </form>
       <div className="w-full h-[426px] px-8 py-12 ml-auto bg-[url('/contact.jpg')] bg-cover bg-top bg-no-repeat lg:-mt-96 lg:w-2/6 rounded-sm">
         <div className="flex flex-col text-white">
-            <div className="my-4">
-              <h2 className="text-2xl flex gap-2">
-                {" "}
-                <PhoneCall /> Call
-              </h2>
-              <p className="text-gray-200">Tel:+801759483544</p>
-            </div>
-            <div className="my-4">
-              <h2 className="text-2xl flex gap-2">
-                {" "}
-                <MailPlus /> Email
-              </h2>
-              <p className="text-gray-200">mail: devmdmainuddin@gmail.com</p>
-            </div>
-            <div className="my-4">
-              <h2 className="text-2xl flex gap-2">
-                {" "}
-                <MapPinPlus /> Location
-              </h2>
-              <p className="text-gray-200">27B Grassfield, Lumely</p>
-            </div>
+          <div className="my-4">
+            <h2 className="text-2xl flex gap-2">
+              {" "}
+              <PhoneCall className="secleup"/> Call
+            </h2>
+            <p className="text-gray-200">Tel:+801759483544</p>
+          </div>
+          <div className="my-4">
+            <h2 className="text-2xl flex gap-2">
+              {" "}
+              <MailPlus className="secleup"/> Email
+            </h2>
+            <p className="text-gray-200">mail: devmdmainuddin@gmail.com</p>
+          </div>
+          <div className="my-4">
+            <h2 className="text-2xl flex gap-2">
+              {" "}
+              <MapPinPlus className="secleup"/> Location
+            </h2>
+            <p className="text-gray-200">27B Grassfield, Lumely</p>
+          </div>
         </div>
       </div>
     </div>

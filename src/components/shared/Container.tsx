@@ -1,16 +1,12 @@
-import React, { ReactNode } from 'react';
+import React, {ReactNode} from "react";
 
 interface ContainerProps {
   children: ReactNode;
-  className?: string; 
+  className?: string;
 }
 
-const Container: React.FC<ContainerProps> = ({ children, className }) => {
-  return (
-    <div className={`max-w-[1200px] px-6 mx-auto ${className || ''}`}>
-      {children}
-    </div>
-  );
+const Container: React.FC<ContainerProps> = ({children, className}) => {
+  return <div className={`max-w-[1200px] px-6 mx-auto ${className || ""}`}>{children}</div>;
 };
 
 export default Container;

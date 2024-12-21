@@ -1,11 +1,18 @@
-
 import type {Metadata} from "next";
 import {Geist, Geist_Mono} from "next/font/google";
 import "./globals.css";
 import {ThemeProvider} from "@/providers/theme-provider";
 import Navbar from "@/components/shared/Navbar";
 import Link from "next/link";
-import {Facebook, Github, Instagram, Linkedin, MessageSquareText, TvMinimalPlay, UserRound} from "lucide-react";
+import {
+  Facebook,
+  Github,
+  Instagram,
+  Linkedin,
+  MessageSquareText,
+  TvMinimalPlay,
+  UserRound,
+} from "lucide-react";
 import {HomeIcon, ScrollText, SunMoon} from "lucide-react";
 import {Dock, DockIcon, DockItem, DockLabel} from "@/components/ui/dock";
 
@@ -17,7 +24,7 @@ const data = [
   },
   {
     title: "About",
-    icon: <UserRound  className="h-full w-full text-neutral-600 dark:text-neutral-300" />,
+    icon: <UserRound className="h-full w-full text-neutral-600 dark:text-neutral-300" />,
     href: "about#",
   },
   {
@@ -27,7 +34,7 @@ const data = [
   },
   {
     title: "Contact",
-    icon: <MessageSquareText  className="h-full w-full text-neutral-600 dark:text-neutral-300" />,
+    icon: <MessageSquareText className="h-full w-full text-neutral-600 dark:text-neutral-300" />,
     href: "Contact",
   },
   {
@@ -79,7 +86,7 @@ export default function RootLayout({
               href="https://www.facebook.com/profile.php?id=100006959283779"
               className="flex justify-between items-center w-full text-[#03a9f4]"
             >
-              Facebook <Facebook size={22} />
+              Facebook <Facebook size={22} className="secleup"/>
             </Link>
           </li>
           <li
@@ -88,7 +95,7 @@ export default function RootLayout({
             }
           >
             <Link href="" className="flex justify-between items-center w-full">
-              Instagram <Instagram size={22} />{" "}
+              Instagram <Instagram size={22} className="secleup"/>{" "}
             </Link>
           </li>
           <li
@@ -101,7 +108,7 @@ export default function RootLayout({
               className="flex justify-between items-center w-full"
             >
               {" "}
-              LinkedinIn <Linkedin size={22} />{" "}
+              LinkedinIn <Linkedin size={22} className="secleup"/>{" "}
             </Link>
           </li>
           <li
@@ -114,25 +121,20 @@ export default function RootLayout({
               className="flex justify-between items-center w-full "
             >
               {" "}
-              Github <Github size={22} />{" "}
+              Github <Github size={22} className="secleup"/>{" "}
             </Link>
           </li>
         </div>
-        
+
         <div className=" fixed bottom-2 left-1/2 max-w-full -translate-x-1/2">
           <Dock className="items-end pb-3">
             {data.map((item, idx) => (
-               <Link key={idx} href={item.href}>
-              <DockItem
-                
-                className="aspect-square rounded-full bg-gray-200 dark:bg-neutral-800"
-              >
-               
-                <DockLabel>{item.title}</DockLabel>
-               
-              
-                <DockIcon>{item.icon}</DockIcon>
-              </DockItem>
+              <Link key={idx} href={item.href}>
+                <DockItem className="aspect-square rounded-full bg-gray-200 dark:bg-neutral-800">
+                  <DockLabel>{item.title}</DockLabel>
+
+                  <DockIcon className="secleup">{item.icon}</DockIcon>
+                </DockItem>
               </Link>
             ))}
           </Dock>
