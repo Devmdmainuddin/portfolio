@@ -6,7 +6,7 @@ import {useEffect, useState} from "react";
 import Contact from "@/components/shared/Contact";
 import Hero from "@/components/shared/Hero";
 import About from "./(public)/about/page";
-
+import Services from "@/components/shared/Services"
 export default function Home() {
   const {theme, setTheme} = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -20,7 +20,8 @@ export default function Home() {
   return (
     <div>
       <Hero />
-      <About/>
+      <About />
+      <Services/>
       <Contact />
       <Button
         variant="outline"

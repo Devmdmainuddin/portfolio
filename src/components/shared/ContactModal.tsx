@@ -1,70 +1,131 @@
 import React from "react";
-import { Button } from "@/components/ui/button";
+import {Button} from "@/components/ui/button";
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { DialogClose } from "@radix-ui/react-dialog";
+import {useForm} from "react-hook-form";
+import {zodResolver} from "@hookform/resolvers/zod";
+import {Input} from "@/components/ui/input";
+import {Textarea} from "@/components/ui/textarea";
+import {Form, FormField, FormItem, FormLabel, FormControl, FormMessage} from "@/components/ui/form";
+import {z} from "zod";
+
+const formSchema = z.object({
+  name: z.string().min(1, "Name is required"),
+  email: z.string().email("Invalid email address"),
+  message: z.string().min(1, "Message is required"),
+});
+
+type ContactFormData = z.infer<typeof formSchema>;
 
 interface ContactModalProps {
-  title: string; // Ensures the title prop is a string
+  title: string;
 }
 
-const ContactModal: React.FC<ContactModalProps> = ({ title }) => {
+const ContactModal: React.FC<ContactModalProps> = ({title}) => {
+  const form = useForm<ContactFormData>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      message: "",
+    },
+  });
+
+  const onSubmit = async (data: ContactFormData) => {
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Error submitting form");
+      }
+      // If the submission is successful
+      const result = await response.json();
+      alert(result.message || "Form submitted successfully!");
+
+      form.reset();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div>
       <Dialog>
-        <DialogTrigger  className="inline-block text-xl font-medium py-3 px-3 border bg-green-600 text-white transition-all border-green-600 hover:bg-white hover:text-green-600 rounded-md">
+        <DialogTrigger className="btn">
           {title}
         </DialogTrigger>
         <DialogContent className="w-full max-w-md bg-white p-6 dark:bg-zinc-900">
           <DialogHeader>
-            <DialogTitle className="text-zinc-900 dark:text-white">
-              Have any Questions?
-            </DialogTitle>
+            <DialogTitle className="text-zinc-900 dark:text-white">Have any Questions?</DialogTitle>
             <DialogDescription className="text-zinc-600 dark:text-zinc-400">
-              meet me
+              Meet me
             </DialogDescription>
           </DialogHeader>
-          <div className="mt-6 flex flex-col space-y-4">
-            <label htmlFor="name" className="sr-only">
-              name
-            </label>
-            <input
-              id="name"
-              type="text"
-              className="h-9 w-full rounded-sm border border-zinc-200 bg-white px-3 text-base text-zinc-900 outline-none focus:ring-2 focus:ring-black/5 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white dark:focus:ring-white/5 sm:text-sm"
-              placeholder="Enter your fullname"
-            />
-            <label htmlFor="email" className="sr-only">
-              Email
-            </label>
-            <input
-              id="email"
-              type="email"
-              className="h-9 w-full rounded-sm border border-zinc-200 bg-white px-3 text-base text-zinc-900 outline-none focus:ring-2 focus:ring-black/5 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white dark:focus:ring-white/5 sm:text-sm"
-              placeholder="Enter your email"
-            />
-            <label htmlFor="message" className="sr-only">
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              placeholder="Enter your Message"
-              className="h-32 w-full py-3 resize-none rounded-sm border border-zinc-200 bg-white px-3 text-base text-zinc-900 outline-none focus:ring-2 focus:ring-black/5 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white "
-            />
-
-            <DialogClose asChild>
-              <Button type="button" variant="secondary">
-                submit now
-              </Button>
-            </DialogClose>
-          </div>
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="mt-6 flex flex-col space-y-4">
+              <FormField
+                name="name"
+                control={form.control}
+                render={({field}) => (
+                  <FormItem>
+                    <FormLabel>Name</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Enter your full name" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                name="email"
+                control={form.control}
+                render={({field}) => (
+                  <FormItem>
+                    <FormLabel>Email</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Enter your email" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                name="message"
+                control={form.control}
+                render={({field}) => (
+                  <FormItem>
+                    <FormLabel>Message</FormLabel>
+                    <FormControl>
+                      <Textarea
+                        className="resize-none "
+                        placeholder="Enter your message"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <DialogClose asChild>
+                <Button type="submit" variant="secondary" disabled={form.formState.isSubmitting}>
+                  {form.formState.isSubmitting ? "Submitting..." : "Submit Now"}
+                </Button>
+              </DialogClose>
+            </form>
+          </Form>
         </DialogContent>
       </Dialog>
     </div>

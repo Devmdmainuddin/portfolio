@@ -8,9 +8,7 @@ const Contact = () => {
   return (
     <div className="py-[107px] px-6 lg:px-[114px] bg-[#e3e5e7ec]">
       <Container className="overflow-hidden">
-     
         <div className="flex justify-end flex-col lg:flex-row relative w-full lg:w-[761px] lg:ml-auto">
-       
           <div className="bg-[url('/contact.jpg')] p-6 w-full lg:w-[408px] h-[380px] lg:h-[480px] bg-cover bg-center bg-no-repeat lg:absolute  lg:top-1/2 lg:-translate-y-1/2 lg:-left-[5%] z-30">
             <h2 className="font-bold text-2xl text-white ">Contact Information</h2>
             <p className="font-normal text-[12px] text-[#C9C9C9]">Chat with our team</p>
@@ -30,7 +28,7 @@ const Contact = () => {
             </div>
           </div>
           <div className="w-full lg:w-[486px] lg:h-[617px]  py-12  lg:pl-[115px] px-6  bg-white relative">
-          <h1 className="text-3xl text-[#282828] font-bold ">Contact Me</h1>
+            <h1 className="text-3xl text-[#282828] font-bold ">Contact Me</h1>
             <form action="" className="mt-[50px]">
               <input
                 type="text"

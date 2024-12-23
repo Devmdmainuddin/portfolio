@@ -86,7 +86,7 @@ export default function RootLayout({
               href="https://www.facebook.com/profile.php?id=100006959283779"
               className="flex justify-between items-center w-full text-[#03a9f4]"
             >
-              Facebook <Facebook size={22} className="secleup"/>
+              Facebook <Facebook size={22} className="secleup" />
             </Link>
           </li>
           <li
@@ -95,7 +95,7 @@ export default function RootLayout({
             }
           >
             <Link href="" className="flex justify-between items-center w-full">
-              Instagram <Instagram size={22} className="secleup"/>{" "}
+              Instagram <Instagram size={22} className="secleup" />{" "}
             </Link>
           </li>
           <li
@@ -108,7 +108,7 @@ export default function RootLayout({
               className="flex justify-between items-center w-full"
             >
               {" "}
-              LinkedinIn <Linkedin size={22} className="secleup"/>{" "}
+              LinkedinIn <Linkedin size={22} className="secleup" />{" "}
             </Link>
           </li>
           <li
@@ -121,7 +121,7 @@ export default function RootLayout({
               className="flex justify-between items-center w-full "
             >
               {" "}
-              Github <Github size={22} className="secleup"/>{" "}
+              Github <Github size={22} className="secleup" />{" "}
             </Link>
           </li>
         </div>

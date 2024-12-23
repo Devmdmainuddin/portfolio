@@ -92,7 +92,6 @@ const Hero = () => {
                       springOptions={springOptions}
                       actionArea="global"
                       range={200}
-                     
                     >
                       <span>dowanload cv</span>
                     </Magnetic>
@@ -102,13 +101,23 @@ const Hero = () => {
             </div>
             <div className="border-emerald-300 rounded-lg border-[10px] overflow-hidden">
               <Image
-                width={500}
-                height={500}
-                className="max-w-[400px] h-[400px] p-2 secleup  transition-all duration-300"
                 src="https://i.ibb.co/qRtvz2p/mdmain-uddin-1703923937-1.png"
-                alt=""
+                alt="Description of the image"
+                width={500} 
+                height={300}
+                className="max-w-[400px] h-[400px] p-2 secleup  transition-all duration-300"
               />
             </div>
+
+            {/* <span className="absolute top-4 right-0">
+              <Image
+                src="/meteor-rain.png"
+                width={150}
+                height={150}
+                alt="image"
+                className="bg-transparent"
+              ></Image>
+            </span> */}
           </div>
 
           <div className="w-2/3 -mt-[166] absolute -bottom-12 right-0">
@@ -123,7 +132,7 @@ const Hero = () => {
                     We{`'`}re Ready Develop Your Site!
                   </h3>
                 </div>
-                <ContactModal title="Make An Appointment"  />
+                <ContactModal title="Make An Appointment" />
               </div>
             </div>
           </div>
