@@ -64,9 +64,7 @@ const ContactModal: React.FC<ContactModalProps> = ({title}) => {
   return (
     <div>
       <Dialog>
-        <DialogTrigger className="btn">
-          {title}
-        </DialogTrigger>
+        <DialogTrigger className="btn">{title}</DialogTrigger>
         <DialogContent className="w-full max-w-md bg-white p-6 dark:bg-zinc-900">
           <DialogHeader>
             <DialogTitle className="text-zinc-900 dark:text-white">Have any Questions?</DialogTitle>

@@ -1,11 +1,9 @@
-import { PhoneCall, MailPlus, MapPinPlus } from "lucide-react";
-import { Magnetic } from "../ui/magnetic";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import Image from "next/image";
+import {PhoneCall, MailPlus, MapPinPlus} from "lucide-react";
+import {Magnetic} from "../ui/magnetic";
+import {useForm} from "react-hook-form";
+import {z} from "zod";
+import {zodResolver} from "@hookform/resolvers/zod";
 
-// Define Zod schema for validation
 const contactFormSchema = z.object({
   firstName: z.string().min(1, "First name is required"),
   lastName: z.string().min(1, "Last name is required"),
@@ -17,10 +15,15 @@ const contactFormSchema = z.object({
 type ContactFormData = z.infer<typeof contactFormSchema>;
 
 const Contact = () => {
-  const springOptions = { bounce: 0.1 };
-  
+  const springOptions = {bounce: 0.1};
+
   // Use React Hook Form with Zod validation
-  const { register, handleSubmit, formState: { errors },reset } = useForm<ContactFormData>({
+  const {
+    register,
+    handleSubmit,
+    formState: {errors},
+    reset,
+  } = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
   });
 
@@ -34,11 +37,11 @@ const Contact = () => {
         },
         body: JSON.stringify(data),
       });
-  
+
       if (!response.ok) {
         throw new Error("Something went wrong while submitting the form.");
       }
-  
+
       const responseData = await response.json();
       alert(responseData.message || "Form submitted successfully!");
       // You can add success feedback here (e.g., showing a success message)
@@ -48,7 +51,7 @@ const Contact = () => {
       // You can add error feedback here (e.g., showing an error message)
     }
   };
-  
+
   return (
     <div className="max-w-screen-xl mx-auto my-7 lg:px-20" id="contact">
       <form onSubmit={handleSubmit(onSubmit)} method="post">
@@ -63,14 +66,14 @@ const Contact = () => {
               placeholder="First Name"
             />
             {errors.firstName && <span className="text-red-500">{errors.firstName.message}</span>}
-            
+
             <input
               {...register("lastName")}
               className="w-full p-3 mt-2 text-gray-900 bg-gray-100 rounded-lg focus:outline-none focus:shadow-outline"
               placeholder="Last Name"
             />
             {errors.lastName && <span className="text-red-500">{errors.lastName.message}</span>}
-            
+
             <input
               {...register("email")}
               className="w-full p-3 mt-2 text-gray-900 bg-gray-100 rounded-lg focus:outline-none focus:shadow-outline"
@@ -78,7 +81,7 @@ const Contact = () => {
               type="email"
             />
             {errors.email && <span className="text-red-500">{errors.email.message}</span>}
-            
+
             <input
               {...register("phone")}
               className="w-full p-3 mt-2 text-gray-900 bg-gray-100 rounded-lg focus:outline-none focus:shadow-outline"
@@ -87,7 +90,7 @@ const Contact = () => {
             />
             {errors.phone && <span className="text-red-500">{errors.phone.message}</span>}
           </div>
-          
+
           <div className="my-4">
             <textarea
               {...register("message")}
@@ -100,7 +103,12 @@ const Contact = () => {
           <div className="my-2 ">
             <Magnetic intensity={0.2} springOptions={springOptions} actionArea="global" range={200}>
               <button type="submit" className="btn inline-block">
-                <Magnetic intensity={0.1} springOptions={springOptions} actionArea="global" range={200}>
+                <Magnetic
+                  intensity={0.1}
+                  springOptions={springOptions}
+                  actionArea="global"
+                  range={200}
+                >
                   <span>Send Message</span>
                 </Magnetic>
               </button>
@@ -108,7 +116,7 @@ const Contact = () => {
           </div>
         </div>
       </form>
-      
+
       <div className="w-full h-[426px] px-8 py-12 ml-auto bg-[url('/contact.jpg')] bg-cover bg-top bg-no-repeat lg:-mt-96 lg:w-2/6 rounded-sm">
         <div className="flex flex-col text-white">
           <div className="my-4">
@@ -119,7 +127,7 @@ const Contact = () => {
           </div>
           <div className="my-4">
             <h2 className="text-2xl flex gap-2">
-            {/* <Image src="/message.gif" alt="Message GIF" width={500} height={500} className="w-8 h-8 bg-transparent"/> */}
+              {/* <Image src="/message.gif" alt="Message GIF" width={500} height={500} className="w-8 h-8 bg-transparent"/> */}
               <MailPlus className="secleup" /> Email
             </h2>
             <p className="text-gray-200">Email: devmdmainuddin@gmail.com</p>

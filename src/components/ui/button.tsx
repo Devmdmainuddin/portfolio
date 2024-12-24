@@ -13,7 +13,8 @@ const buttonVariants = cva(
         destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
         outline:
           "text-xl font-medium capitalize py-3 px-7 border text-green-600 inline-block mt-6  transition-all duration-300 border-green-600 hover:bg-green-600 hover:text-white",
-        secondary: "inline-block text-xl font-medium py-3 px-3 border bg-green-600 text-white transition-all border-green-600 hover:bg-white hover:text-green-600 rounded-md",
+        secondary:
+          "inline-block text-xl font-medium py-3 px-3 border bg-green-600 text-white transition-all border-green-600 hover:bg-white hover:text-green-600 rounded-md",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
       },

@@ -1,4 +1,4 @@
-import { Tilt } from "../ui/tilt";
+import {Tilt} from "../ui/tilt";
 import Container from "./Container";
 
 const Services = () => {
@@ -56,7 +56,7 @@ const Services = () => {
   return (
     <div className="py-[120px] bg-[#F8F9FA]">
       <Container>
-        <h1 className="relative text-3xl font-bold text-center  after:absolute after:-bottom-3 after:left-1/2 after:-translate-x-1/2 after:w-[80px] after:h-1 after:content-[''] after:bg-[#00CECB]">
+        <h1 className="relative text-3xl font-light tracking-[3px] uppercase text-[#282828] text-center  after:absolute after:-bottom-3 after:left-1/2 after:-translate-x-1/2 after:w-[80px] after:h-[2px] after:content-[''] after:bg-[#00CECB]">
           Our Services
         </h1>
         <p className="text-[#565B5E] max-w-[420px] text-center mx-auto mt-6">
@@ -64,25 +64,24 @@ const Services = () => {
           exceptional results while working with Me.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-[50px]">
-        
           {service.map((item, idx) => (
             <Tilt rotationFactor={8} isRevese key={idx}>
-            <div
-                //   key={idx}
-                  className="shadow-[0px_2px_8px_0px_rgba(99,99,99,0.2)] bg-gradient-to-tr from-pink-300 to-blue-300 p-6  "
-                >
-                  <img
-                    src={item.icon}
-                    alt={item.title}
-                    className="w-[120px] h-[120px]  rounded-full  mx-auto"
-                  />
-    
-                  <h2 className="text-[#24292F] text-xl font-bold mt-[50px] text-center">
-                    {item.title}
-                  </h2>
-                  <p className="text-[#565B5E] text-justify mt-3">{item.description}</p>
-                </div>
-                </Tilt>
+              <div
+               
+                className="shadow-[0px_2px_8px_0px_rgba(99,99,99,0.2)] bg-gradient-to-tr from-pink-300 to-blue-300 p-6  "
+              >
+                <img
+                  src={item.icon}
+                  alt={item.title}
+                  className="w-[120px] h-[120px]  rounded-full  mx-auto"
+                />
+
+                <h2 className="text-[#24292F] text-xl font-bold mt-[50px] text-center">
+                  {item.title}
+                </h2>
+                <p className="text-[#565B5E] text-justify mt-3">{item.description}</p>
+              </div>
+            </Tilt>
           ))}
         </div>
       </Container>

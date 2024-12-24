@@ -21,13 +21,16 @@ const About = () => {
           </div>
 
           <div>
-            <h2 className="font-semibold text-3xl tracking-[3px] uppercase font-Montserrat">About ME</h2>
-            <h3 className="text-2xl font-semibold capitalize mt-4">Hello! i&apos;m <span className="text-green-600 ml-2">md. mainuddin .</span> </h3>
+            <h2 className="font-semibold text-3xl tracking-[3px] uppercase font-Montserrat">
+              About ME
+            </h2>
+            <h3 className="text-2xl font-semibold capitalize mt-4">
+              Hello! i&apos;m <span className="text-green-600 ml-2">md. mainuddin .</span>{" "}
+            </h3>
             <p className="text-sm text-[#4c4d4d] leading-6 font-Montserrat max-w-[480px] mt-2">
-              My vision is to create solution to grow your
-              business. I{`'`}m working with react , node.js, mongodb, Wordpress, Elementor,
-              Ecommerce, blog, portfolio, business, booking, real-estate & startup website design
-              from scratch and fixing website bug & error.
+              My vision is to create solution to grow your business. I{`'`}m working with react ,
+              node.js, mongodb, Wordpress, Elementor, Ecommerce, blog, portfolio, business, booking,
+              real-estate & startup website design from scratch and fixing website bug & error.
             </p>
             <ul className="menus capitalize mt-2">
               {/* <li className="mb-2.5"><Link className="inline-block text-lg font-medium text-gray-400 hover:text-green-600 transition duration-300" href="#">Service</Link></li> */}
@@ -88,7 +91,6 @@ const About = () => {
           </div>
         </div>
       </Container>
-      
     </div>
   );
 };

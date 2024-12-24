@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Container from "./Container";
 import ContactModal from "./ContactModal";
-
+import {Typewriter} from "react-simple-typewriter";
 const Hero = () => {
   const springOptions = {bounce: 0.1};
 
@@ -21,9 +21,11 @@ const Hero = () => {
                 Hi, I’m <span className="text-green-600 font-bold">main uddin</span>
                 <br />
                 <span>a </span>
-                {/* <Typewriter words={['Junior MERN Stack Developer', 'Frontend Developer', 'React Developer', 'Web Designar']}
-                            loop={'ture'} /> */}
-                {/* <span>Junior MERN Stack Developer</span> */}
+                <Typewriter
+                  words={["Junior MERN Stack ", "Frontend ", "React ", "Next.js "]}
+                  loop={true} 
+                />
+                <span> Developer</span>
               </h1>
               <p className="text-sm text-gray-600 leading-8 font-Montserrat max-w-[480px]">
                 I can make unique and dynamic websites for you or your business. With me, you can
@@ -103,7 +105,7 @@ const Hero = () => {
               <Image
                 src="https://i.ibb.co/qRtvz2p/mdmain-uddin-1703923937-1.png"
                 alt="Description of the image"
-                width={500} 
+                width={500}
                 height={300}
                 className="max-w-[400px] h-[400px] p-2 secleup  transition-all duration-300"
               />
