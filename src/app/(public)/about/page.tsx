@@ -10,7 +10,16 @@ const About = () => {
     <div className="my-[120px]">
       <Container>
         <div className="flex justify-between items-center flex-col lg:flex-row gap-6">
-          <div className=" w-[425px]">
+          <div className="border-emerald-300 rounded-lg border-[10px] overflow-hidden">
+            <Image
+              src="https://i.ibb.co/qRtvz2p/mdmain-uddin-1703923937-1.png"
+              alt="Description of the image"
+              width={500}
+              height={300}
+              className="max-w-[400px] h-[400px] p-2 secleup  transition-all duration-300"
+            />
+          </div>
+          {/* <div className=" w-[425px]">
             <Image
               width={500}
               height={500}
@@ -18,9 +27,9 @@ const About = () => {
               src="https://i.ibb.co/qRtvz2p/mdmain-uddin-1703923937-1.png"
               alt=""
             />
-          </div>
+          </div> */}
 
-          <div>
+          <div className="flex-1">
             <h2 className="font-semibold text-3xl tracking-[3px] uppercase font-Montserrat">
               About ME
             </h2>
@@ -33,7 +42,6 @@ const About = () => {
               real-estate & startup website design from scratch and fixing website bug & error.
             </p>
             <ul className="menus capitalize mt-2">
-              {/* <li className="mb-2.5"><Link className="inline-block text-lg font-medium text-gray-400 hover:text-green-600 transition duration-300" href="#">Service</Link></li> */}
               <li className=" text-sm leading-8 font-Montserrat ">
                 <span className="text-black dark:text-[#858585] text-[16px] font-semibold">
                   Name :{" "}

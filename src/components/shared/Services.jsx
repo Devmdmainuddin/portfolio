@@ -66,10 +66,7 @@ const Services = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-[50px]">
           {service.map((item, idx) => (
             <Tilt rotationFactor={8} isRevese key={idx}>
-              <div
-               
-                className="shadow-[0px_2px_8px_0px_rgba(99,99,99,0.2)] bg-gradient-to-tr from-pink-300 to-blue-300 p-6  "
-              >
+              <div className="shadow-[0px_2px_8px_0px_rgba(99,99,99,0.2)] bg-gradient-to-tr from-pink-300 to-blue-300 p-6  ">
                 <img
                   src={item.icon}
                   alt={item.title}

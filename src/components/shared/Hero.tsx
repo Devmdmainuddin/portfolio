@@ -1,19 +1,63 @@
 import {Facebook, Github, Instagram, Linkedin} from "lucide-react";
 import {Magnetic} from "@/components/ui/magnetic";
 import Link from "next/link";
-import Image from "next/image";
+import {useForm} from "react-hook-form";
+import {zodResolver} from "@hookform/resolvers/zod";
+import {Form, FormField, FormItem,  FormControl, FormMessage} from "@/components/ui/form";
 import Container from "./Container";
 import ContactModal from "./ContactModal";
 import {Typewriter} from "react-simple-typewriter";
+import {Button} from "../ui/button";
+import {z} from "zod";
+import {Input} from "../ui/input";
+import {Textarea} from "../ui/textarea";
+
+const formSchema = z.object({
+  name: z.string().min(1, "Name is required"),
+  email: z.string().email("Invalid email address"),
+  message: z.string().min(1, "Message is required"),
+});
+
+type ContactFormData = z.infer<typeof formSchema>;
+
 const Hero = () => {
   const springOptions = {bounce: 0.1};
+  const form = useForm<ContactFormData>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      message: "",
+    },
+  });
+  const onSubmit = async (data: ContactFormData) => {
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
+      if (!response.ok) {
+        throw new Error("Error submitting form");
+      }
+      // If the submission is successful
+      const result = await response.json();
+      alert(result.message || "Form submitted successfully!");
+
+      form.reset();
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
     <div className="bg-[#f3f6f3] capitalize">
       <Container>
         <div className="relative">
           <div className=" flex flex-col lg:flex-row gap-y-10 py-[100px]  justify-between items-center  ">
-            <div className="">
+            <div className="max-w-[652px]">
               <h4 className="font-normal tracking-[3px] uppercase font-Montserrat">
                 Welcome to my world
               </h4>
@@ -21,10 +65,12 @@ const Hero = () => {
                 Hi, I’m <span className="text-green-600 font-bold">main uddin</span>
                 <br />
                 <span>a </span>
-                <Typewriter
-                  words={["Junior MERN Stack ", "Frontend ", "React ", "Next.js "]}
-                  loop={true} 
-                />
+                <span className="">
+                  <Typewriter
+                    words={["Junior MERN Stack ", "Frontend ", "React ", "Next.js "]}
+                    loop={true}
+                  />
+                </span>
                 <span> Developer</span>
               </h1>
               <p className="text-sm text-gray-600 leading-8 font-Montserrat max-w-[480px]">
@@ -101,15 +147,6 @@ const Hero = () => {
                 </Magnetic>
               </div>
             </div>
-            <div className="border-emerald-300 rounded-lg border-[10px] overflow-hidden">
-              <Image
-                src="https://i.ibb.co/qRtvz2p/mdmain-uddin-1703923937-1.png"
-                alt="Description of the image"
-                width={500}
-                height={300}
-                className="max-w-[400px] h-[400px] p-2 secleup  transition-all duration-300"
-              />
-            </div>
 
             {/* <span className="absolute top-4 right-0">
               <Image
@@ -120,10 +157,64 @@ const Hero = () => {
                 className="bg-transparent"
               ></Image>
             </span> */}
+            <div className="p-6 bg-white">
+              <Form {...form}>
+                <h2 className="text-zinc-900 dark:text-white"> Have any Questions? </h2>
+                <form
+                  onSubmit={form.handleSubmit(onSubmit)}
+                  className="mt-6 flex flex-col space-y-4"
+                >
+                  <FormField
+                    name="name"
+                    control={form.control}
+                    render={({field}) => (
+                      <FormItem>
+                        <FormControl>
+                          <Input placeholder="Enter your full name" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    name="email"
+                    control={form.control}
+                    render={({field}) => (
+                      <FormItem>
+                        <FormControl>
+                          <Input placeholder="Enter your email" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    name="message"
+                    control={form.control}
+                    render={({field}) => (
+                      <FormItem>
+                        <FormControl>
+                          <Textarea
+                            className="resize-none "
+                            placeholder="Enter your message"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <Button type="submit" variant="secondary" disabled={form.formState.isSubmitting}>
+                    {form.formState.isSubmitting ? "Submitting..." : "Submit Now"}
+                  </Button>
+                </form>
+              </Form>
+            </div>
           </div>
 
-          <div className="w-2/3 -mt-[166] absolute -bottom-12 right-0">
-            <div className="relative w-full md:w-[672px] md:ml-auto ">
+          <div className="lg:block hidden w-2/3 -mt-[166] absolute -bottom-12 right-0">
+            <div className="relative w-full md:max-w-[672px] md:ml-auto ">
               <div className=" w-[124px] h-[41px] absolute left-1 top-10 bg-green-600 [clip-path:polygon(0_0,100%_0,100%_100%,20%_100%)]"></div>
               <div className="flex justify-center items-center gap-x-2 bg-[#e6f8eb] py-7 md:pr-2 md:pl-[96px] [clip-path:polygon(0_0,100%_0,100%_100%,20%_100%)]">
                 <div className=" md:block hidden">

@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import {HomeIcon, ScrollText, SunMoon} from "lucide-react";
 import {Dock, DockIcon, DockItem, DockLabel} from "@/components/ui/dock";
+import Footer from "@/components/shared/Footer";
 
 const data = [
   {
@@ -75,6 +76,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Navbar />
           {children}
+          <Footer />
         </ThemeProvider>
         <div className=" flex flex-col fixed top-[40%] left-0  ">
           <li

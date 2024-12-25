@@ -17,7 +17,6 @@ const Skills = () => {
     {id: 10, src: "/ex.svg", alt: "GitHub"},
     {id: 11, src: "/git.svg", alt: "GitLab"},
     {id: 12, src: "/nexauth.png", alt: "Docker"},
-
   ];
   return (
     <div className="bg-white">
@@ -39,9 +38,6 @@ const Skills = () => {
                 ></Image>
               </div>
             ))}
-
-         
-           
           </div>
           <div className="flex justify-around items-center mt-12 flex-wrap gap-3">
             <article className="borderTrail  overflow-hidden rounded-lg hover:shadow-[rgba(17,_17,_26,_0.1)_0px_8px_24px,_rgba(17,_17,_26,_0.1)_0px_16px_56px,_rgba(17,_17,_26,_0.1)_0px_24px_80px] transition-all duration-500  p-6">

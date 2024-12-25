@@ -41,13 +41,13 @@ body {
   .btn {
     @apply inline-block text-xl font-medium py-3 px-3 border bg-green-600 text-white transition-all border-green-600 hover:bg-white hover:text-green-600 rounded-md;
   }
-  .tab{
+  .tab {
     @apply data-[state=active]:border-[#17f3ec] data-[state=active]:shadow hover:bg-[#acf6f455] hover:border-[#17f3ec]  border-b rounded-none p-6 transition-all duration-300;
   }
-  .borderTrail{
+  .borderTrail {
     @apply relative  overflow-hidden rounded-md border border-zinc-950/10 bg-white text-zinc-700 outline-none dark:border-zinc-50/20 dark:bg-zinc-950 dark:text-zinc-300 p-6;
   }
-  .skillsLi{
+  .skillsLi {
     @apply py-2 px-3 shadow-sm rounded-sm border hover:bg-[#DDFCFB] hover:border-[#00D0CA] capitalize transition-all duration-500;
   }
   .infinity-border {

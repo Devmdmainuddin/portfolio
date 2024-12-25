@@ -24,11 +24,11 @@ export default function Home() {
     <div>
       <Hero />
       <About />
-      <Skills/>
+      <Skills />
       <Services />
-      <Different/>
+      <Different />
       <Contact />
-      <Works/>
+      <Works />
       <Button
         variant="outline"
         size="icon"

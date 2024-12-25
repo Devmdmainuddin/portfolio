@@ -1,5 +1,6 @@
 import Container from "./Container";
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs";
+import {Eye} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -76,13 +77,26 @@ const Works = () => {
         <div>
           <Tabs defaultValue="account" className=" mt-[30px]">
             <TabsList className="mx-auto w-full bg-transparent">
-              <TabsTrigger value="All" className="tab data-[state=active]:bg-[#acf6f455] ">All</TabsTrigger>
-              <TabsTrigger value="Ecommerce" className="tab data-[state=active]:bg-[#acf6f455]">Ecommerce</TabsTrigger>
-              <TabsTrigger value="Blogs" className="tab data-[state=active]:bg-[#acf6f455]">Blogs</TabsTrigger>
-              <TabsTrigger value="Travels" className="tab data-[state=active]:bg-[#acf6f455]">Travels</TabsTrigger>
-              <TabsTrigger value="Portfolio" className="tab data-[state=active]:bg-[#acf6f455]">Portfolio</TabsTrigger>
+              <TabsTrigger value="All" className="tab data-[state=active]:bg-[#acf6f455] ">
+                All
+              </TabsTrigger>
+              <TabsTrigger value="Ecommerce" className="tab data-[state=active]:bg-[#acf6f455]">
+                Ecommerce
+              </TabsTrigger>
+              <TabsTrigger value="Blogs" className="tab data-[state=active]:bg-[#acf6f455]">
+                Blogs
+              </TabsTrigger>
+              <TabsTrigger value="Travels" className="tab data-[state=active]:bg-[#acf6f455]">
+                Travels
+              </TabsTrigger>
+              <TabsTrigger value="Portfolio" className="tab data-[state=active]:bg-[#acf6f455]">
+                Portfolio
+              </TabsTrigger>
             </TabsList>
-            <TabsContent value="All" className="w-full grid grid-cols-1 lg:grid-cols-2  gap-6 mt-[50px]">
+            <TabsContent
+              value="All"
+              className="w-full grid grid-cols-1 lg:grid-cols-2  gap-6 mt-[50px]"
+            >
               {works.map((item, idx) => (
                 <article
                   key={idx}
@@ -122,6 +136,7 @@ const Works = () => {
                           href={item.liveLink}
                           className="flex  justify-center items-center bg-blue-500 text-white border hover:border-blue-500 hover:text-blue-500 hover:bg-white px-5 py-3 text-center text-xs font-bold uppercase  transition "
                         >
+                          <Eye className="mr-2 text-xs" />
                           {/* <MdOutlineRemoveRedEye className="mr-2 text-xs" />    Preview */}
                         </Link>
                       </div>
@@ -148,7 +163,6 @@ const Works = () => {
                 </article>
               ))}
             </TabsContent>
-           
           </Tabs>
         </div>
       </Container>
