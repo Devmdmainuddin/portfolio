@@ -3,7 +3,8 @@ import {Magnetic} from "../ui/magnetic";
 import {useForm} from "react-hook-form";
 import {z} from "zod";
 import {zodResolver} from "@hookform/resolvers/zod";
-
+import {Facebook, Github, Instagram, Linkedin} from "lucide-react";
+import Link from "next/link";
 const contactFormSchema = z.object({
   firstName: z.string().min(1, "First name is required"),
   lastName: z.string().min(1, "Last name is required"),
@@ -17,7 +18,6 @@ type ContactFormData = z.infer<typeof contactFormSchema>;
 const Contact = () => {
   const springOptions = {bounce: 0.1};
 
-  // Use React Hook Form with Zod validation
   const {
     register,
     handleSubmit,
@@ -29,7 +29,6 @@ const Contact = () => {
 
   const onSubmit = async (data: ContactFormData) => {
     try {
-      // Send the form data to your API endpoint
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
@@ -137,6 +136,39 @@ const Contact = () => {
               <MapPinPlus className="secleup" /> Location
             </h2>
             <p className="text-gray-200">27B Grassfield, Lumely</p>
+          </div>
+        </div>
+        <div className=" w-80 ">
+          <h3 className="text-white text-2xl dark:text-gray-300 ">Follow us</h3>
+
+          <div className="flex mt-4 -mx-1.5 ">
+            <Link
+              className="mx-1.5 dark:hover:text-blue-400 text-gray-400  duration-300 transform hover:text-[#03a9f4] hover:shadow-[0_0_150px_0_rgba(196,206,213,0.7)]  dark:shadow-[0_0_20px_0_rgba(0,0,0,0.1)] dark:hover:shadow-[0_0_50px_0_rgba(0,0,0,0.2)] hover:translate-y-[-5px] transition-all"
+              href="#"
+            >
+              <Facebook className="w-8 h-8"></Facebook>
+            </Link>
+
+            <Link
+              className="mx-1.5 dark:hover:text-blue-400 text-gray-400  duration-300 transform hover:text-[#007aaa] hover:shadow-[0_0_150px_0_rgba(196,206,213,0.7)]  dark:shadow-[0_0_20px_0_rgba(0,0,0,0.1)] dark:hover:shadow-[0_0_50px_0_rgba(0,0,0,0.2)] hover:translate-y-[-5px] transition-all"
+              href="#"
+            >
+              <Linkedin className="w-8 h-8"></Linkedin>
+            </Link>
+
+            <Link
+              className="mx-1.5 dark:hover:text-blue-400 text-gray-400  duration-300 transform hover:text-[#1f2328] hover:shadow-[0_0_150px_0_rgba(196,206,213,0.7)]  dark:shadow-[0_0_20px_0_rgba(0,0,0,0.1)] dark:hover:shadow-[0_0_50px_0_rgba(0,0,0,0.2)] hover:translate-y-[-5px] transition-all"
+              href="#"
+            >
+              <Github className="w-8 h-8"></Github>
+            </Link>
+
+            <a
+              className="mx-1.5 dark:hover:text-blue-400 text-gray-400  duration-300 transform hover:text-[#ea4c89] hover:shadow-[0_0_150px_0_rgba(196,206,213,0.7)]  dark:shadow-[0_0_20px_0_rgba(0,0,0,0.1)] dark:hover:shadow-[0_0_50px_0_rgba(0,0,0,0.2)] hover:translate-y-[-5px] transition-all"
+              href="#"
+            >
+              <Instagram className="w-8 h-8"></Instagram>
+            </a>
           </div>
         </div>
       </div>

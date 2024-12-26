@@ -3,7 +3,7 @@ import {Magnetic} from "@/components/ui/magnetic";
 import Link from "next/link";
 import {useForm} from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod";
-import {Form, FormField, FormItem,  FormControl, FormMessage} from "@/components/ui/form";
+import {Form, FormField, FormItem, FormControl, FormMessage} from "@/components/ui/form";
 import Container from "./Container";
 import ContactModal from "./ContactModal";
 import {Typewriter} from "react-simple-typewriter";

@@ -10,6 +10,7 @@ import Services from "@/components/shared/Services";
 import Works from "@/components/shared/Works";
 import Different from "@/components/shared/Different";
 import Skills from "@/components/shared/Skills";
+import AddProjectForm from "@/components/shared/ProjectAdd";
 export default function Home() {
   const {theme, setTheme} = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -23,6 +24,7 @@ export default function Home() {
   return (
     <div>
       <Hero />
+      <AddProjectForm/>
       <About />
       <Skills />
       <Services />

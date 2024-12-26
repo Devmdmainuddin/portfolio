@@ -2,12 +2,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import {Facebook, Github, Instagram, Linkedin} from "lucide-react";
+import Container from "./Container";
 const Footer = () => {
   return (
     <footer>
       <section className="bg-gray-50 dark:bg-black overflow-hidden">
         <div className="py-24">
-          <div className="max-w-[1280px] mx-auto px-6">
+          <Container>
             <div className="flex flex-wrap justify-center -m-8 mb-12">
               <div className="w-full md:w-1/2 lg:w-3/12 p-4">
                 <div className="md:max-w-xs">
@@ -187,7 +188,8 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </Container>
+
           <p className="text-center text-sm text-gray-500 pt-8 px-4 border-t w-full">
             All rights reserved © <span className="text-green-600 text-xl">Md.Mainuddin</span> 2024
           </p>
