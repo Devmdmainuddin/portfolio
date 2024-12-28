@@ -7,7 +7,7 @@ import Link from "next/link";
 const Contact = () => {
   const springOptions = {bounce: 0.1};
   return (
-    <div className="py-[107px] px-6 lg:px-[114px] bg-[#e3e5e7ec]">
+    <div className="py-[107px] px-6 lg:px-[114px] bg-[#E7F6F9] dark:bg-gradient-to-r dark:from-[#708188] dark:to-[#555F65]">
       <Container className="overflow-hidden">
         <div className="flex justify-end flex-col lg:flex-row relative w-full lg:w-[761px] lg:ml-auto">
           <div className="bg-[url('/contact.jpg')] p-6 w-full lg:w-[408px] h-[380px] lg:h-[480px] bg-cover bg-center bg-no-repeat lg:absolute  lg:top-1/2 lg:-translate-y-1/2 lg:-left-[5%] z-30">
@@ -28,54 +28,54 @@ const Contact = () => {
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
             </div>
             <div className=" w-80 ">
-          <h3 className="text-white text-2xl dark:text-gray-300 ">Follow us</h3>
+              <h3 className="text-white text-2xl dark:text-gray-300 ">Follow us</h3>
 
-          <div className="flex mt-4 -mx-1.5 ">
-            <Link
-              className="mx-1.5 dark:hover:text-blue-400 text-gray-400  duration-300 transform hover:text-[#03a9f4] hover:shadow-[0_0_150px_0_rgba(196,206,213,0.7)]  dark:shadow-[0_0_20px_0_rgba(0,0,0,0.1)] dark:hover:shadow-[0_0_50px_0_rgba(0,0,0,0.2)] hover:translate-y-[-5px] transition-all"
-              href="#"
-            >
-              <Facebook className="w-8 h-8"></Facebook>
-            </Link>
+              <div className="flex mt-4 -mx-1.5 ">
+                <Link
+                  className="mx-1.5 dark:hover:text-blue-400 text-gray-400  duration-300 transform hover:text-[#03a9f4] hover:shadow-[0_0_150px_0_rgba(196,206,213,0.7)]  dark:shadow-[0_0_20px_0_rgba(0,0,0,0.1)] dark:hover:shadow-[0_0_50px_0_rgba(0,0,0,0.2)] hover:translate-y-[-5px] transition-all"
+                  href="#"
+                >
+                  <Facebook className="w-8 h-8"></Facebook>
+                </Link>
 
-            <Link
-              className="mx-1.5 dark:hover:text-blue-400 text-gray-400  duration-300 transform hover:text-[#007aaa] hover:shadow-[0_0_150px_0_rgba(196,206,213,0.7)]  dark:shadow-[0_0_20px_0_rgba(0,0,0,0.1)] dark:hover:shadow-[0_0_50px_0_rgba(0,0,0,0.2)] hover:translate-y-[-5px] transition-all"
-              href="#"
-            >
-              <Linkedin className="w-8 h-8"></Linkedin>
-            </Link>
+                <Link
+                  className="mx-1.5 dark:hover:text-blue-400 text-gray-400  duration-300 transform hover:text-[#007aaa] hover:shadow-[0_0_150px_0_rgba(196,206,213,0.7)]  dark:shadow-[0_0_20px_0_rgba(0,0,0,0.1)] dark:hover:shadow-[0_0_50px_0_rgba(0,0,0,0.2)] hover:translate-y-[-5px] transition-all"
+                  href="#"
+                >
+                  <Linkedin className="w-8 h-8"></Linkedin>
+                </Link>
 
-            <Link
-              className="mx-1.5 dark:hover:text-blue-400 text-gray-400  duration-300 transform hover:text-[#1f2328] hover:shadow-[0_0_150px_0_rgba(196,206,213,0.7)]  dark:shadow-[0_0_20px_0_rgba(0,0,0,0.1)] dark:hover:shadow-[0_0_50px_0_rgba(0,0,0,0.2)] hover:translate-y-[-5px] transition-all"
-              href="#"
-            >
-              <Github className="w-8 h-8"></Github>
-            </Link>
+                <Link
+                  className="mx-1.5 dark:hover:text-blue-400 text-gray-400  duration-300 transform hover:text-[#1f2328] hover:shadow-[0_0_150px_0_rgba(196,206,213,0.7)]  dark:shadow-[0_0_20px_0_rgba(0,0,0,0.1)] dark:hover:shadow-[0_0_50px_0_rgba(0,0,0,0.2)] hover:translate-y-[-5px] transition-all"
+                  href="#"
+                >
+                  <Github className="w-8 h-8"></Github>
+                </Link>
 
-            <a
-              className="mx-1.5 dark:hover:text-blue-400 text-gray-400  duration-300 transform hover:text-[#ea4c89] hover:shadow-[0_0_150px_0_rgba(196,206,213,0.7)]  dark:shadow-[0_0_20px_0_rgba(0,0,0,0.1)] dark:hover:shadow-[0_0_50px_0_rgba(0,0,0,0.2)] hover:translate-y-[-5px] transition-all"
-              href="#"
-            >
-              <Instagram className="w-8 h-8"></Instagram>
-            </a>
-          </div>
-        </div>
+                <a
+                  className="mx-1.5 dark:hover:text-blue-400 text-gray-400  duration-300 transform hover:text-[#ea4c89] hover:shadow-[0_0_150px_0_rgba(196,206,213,0.7)]  dark:shadow-[0_0_20px_0_rgba(0,0,0,0.1)] dark:hover:shadow-[0_0_50px_0_rgba(0,0,0,0.2)] hover:translate-y-[-5px] transition-all"
+                  href="#"
+                >
+                  <Instagram className="w-8 h-8"></Instagram>
+                </a>
+              </div>
+            </div>
           </div>
           <div className="w-full lg:w-[486px] lg:h-[617px]  py-12  lg:pl-[115px] px-6  bg-white relative">
             <h1 className="text-3xl text-[#282828] font-bold ">Contact Me</h1>
             <form action="" className="mt-[50px]">
               <input
                 type="text"
-                className="border-b-2 border-gray-300 w-full py-2  text-gray-700 placeholder-gray-500 focus:outline-0 focus:border-blue-500 transition-all duration-300"
+                className="border-b-2 border-gray-300 w-full py-2 dark:bg-white text-gray-700 placeholder-gray-500 focus:outline-0 focus:border-blue-500 transition-all duration-300"
                 placeholder="Name"
               />
               <input
                 type="text"
-                className="border-b-2 border-gray-300 w-full py-2  mt-4 text-gray-700 placeholder-gray-500 focus:outline-0 focus:border-blue-500 transition-all duration-300"
+                className="border-b-2 border-gray-300 w-full py-2 dark:bg-white mt-4 text-gray-700 placeholder-gray-500 focus:outline-0 focus:border-blue-500 transition-all duration-300"
                 placeholder="Email"
               />
               <textarea
-                className="border-b-2 border-gray-300 w-full py-2  mt-4 text-gray-700 placeholder-gray-500 focus:outline-0 focus:border-blue-500 h-[120px] resize-none transition-all duration-300"
+                className="border-b-2 border-gray-300 w-full py-2 dark:bg-white mt-4 text-gray-700 placeholder-gray-500 focus:outline-0 focus:border-blue-500 h-[120px] resize-none transition-all duration-300"
                 placeholder="Message"
               />
 

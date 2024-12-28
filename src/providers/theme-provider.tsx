@@ -11,7 +11,7 @@ export function ThemeProvider({children, ...props}: ThemeProviderProps) {
   }, []);
 
   if (!mounted) {
-    return null; // Prevent rendering until mounted
+    return null;
   }
 
   return (

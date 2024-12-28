@@ -1,3 +1,4 @@
+"use client";
 import {PhoneCall, MailPlus, MapPinPlus} from "lucide-react";
 import {Magnetic} from "../ui/magnetic";
 import {useForm} from "react-hook-form";
@@ -5,6 +6,7 @@ import {z} from "zod";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {Facebook, Github, Instagram, Linkedin} from "lucide-react";
 import Link from "next/link";
+import Container from "./Container";
 const contactFormSchema = z.object({
   firstName: z.string().min(1, "First name is required"),
   lastName: z.string().min(1, "Last name is required"),
@@ -43,17 +45,17 @@ const Contact = () => {
 
       const responseData = await response.json();
       alert(responseData.message || "Form submitted successfully!");
-      // You can add success feedback here (e.g., showing a success message)
       reset();
     } catch (error) {
       console.log(error);
-      // You can add error feedback here (e.g., showing an error message)
+    
     }
   };
 
   return (
-    <div className="max-w-screen-xl mx-auto my-7 lg:px-20" id="contact">
-      <form onSubmit={handleSubmit(onSubmit)} method="post">
+    <div className=" bg-[#E7F6F9] dark:bg-[#738188] py-7" id="contact">
+     <Container>
+     <form onSubmit={handleSubmit(onSubmit)} method="post">
         <div className="w-full p-8 my-4 mr-auto shadow-2xl md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 rounded-2xl">
           <div className="flex">
             <h1 className="text-5xl text-[#282828] font-bold">Hire Me</h1>
@@ -172,6 +174,8 @@ const Contact = () => {
           </div>
         </div>
       </div>
+     </Container>
+     
     </div>
   );
 };

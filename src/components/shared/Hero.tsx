@@ -1,59 +1,16 @@
+"use client";
 import {Facebook, Github, Instagram, Linkedin} from "lucide-react";
 import {Magnetic} from "@/components/ui/magnetic";
 import Link from "next/link";
-import {useForm} from "react-hook-form";
-import {zodResolver} from "@hookform/resolvers/zod";
-import {Form, FormField, FormItem, FormControl, FormMessage} from "@/components/ui/form";
 import Container from "./Container";
 import ContactModal from "./ContactModal";
 import {Typewriter} from "react-simple-typewriter";
-import {Button} from "../ui/button";
-import {z} from "zod";
-import {Input} from "../ui/input";
-import {Textarea} from "../ui/textarea";
-
-const formSchema = z.object({
-  name: z.string().min(1, "Name is required"),
-  email: z.string().email("Invalid email address"),
-  message: z.string().min(1, "Message is required"),
-});
-
-type ContactFormData = z.infer<typeof formSchema>;
+import Form from "./Form";
 
 const Hero = () => {
   const springOptions = {bounce: 0.1};
-  const form = useForm<ContactFormData>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      message: "",
-    },
-  });
-  const onSubmit = async (data: ContactFormData) => {
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      if (!response.ok) {
-        throw new Error("Error submitting form");
-      }
-      // If the submission is successful
-      const result = await response.json();
-      alert(result.message || "Form submitted successfully!");
-
-      form.reset();
-    } catch (error) {
-      console.error(error);
-    }
-  };
-  return (
-    <div className="bg-[#f3f6f3] capitalize">
+ return (
+    <div className="bg-[#D0EBEB] dark:bg-[#738188] capitalize">
       <Container>
         <div className="relative">
           <div className=" flex flex-col lg:flex-row gap-y-10 py-[100px]  justify-between items-center  ">
@@ -62,7 +19,7 @@ const Hero = () => {
                 Welcome to my world
               </h4>
               <h1 className="md:text-5xl text-2xl uppercase font-normal leading-[1.5] font-Montserrat">
-                Hi, I’m <span className="text-green-600 font-bold">main uddin</span>
+                Hi, I’m <span className="text-[#16a34a] font-bold">main uddin</span>
                 <br />
                 <span>a </span>
                 <span className="">
@@ -73,7 +30,7 @@ const Hero = () => {
                 </span>
                 <span> Developer</span>
               </h1>
-              <p className="text-sm text-gray-600 leading-8 font-Montserrat max-w-[480px]">
+              <p className="text-sm text-gray-600 dark:text-[#c8c8c8] leading-8 font-Montserrat max-w-[480px]">
                 I can make unique and dynamic websites for you or your business. With me, you can
                 rest easy knowing that your project is in professional hands. Need to consult about
                 your problem before ordering? Feel free to reach out and I will try to guide you in
@@ -88,27 +45,27 @@ const Hero = () => {
                   <Link
                     href="https://www.facebook.com/profile.php?id=100006959283779"
                     className="shadow-[0_0_50px_0_rgba(196,206,213,0.2)] hover:shadow-[0_0_150px_0_rgba(196,206,213,0.7)]  dark:shadow-[0_0_20px_0_rgba(0,0,0,0.1)] dark:hover:shadow-[0_0_50px_0_rgba(0,0,0,0.2)] hover:translate-y-[-10px] transition duration-500 w-[40px] h-[40px]  md:w-[60px] md:h-[50px] border border-[#03a9f4] text-center  
-                                            rounded-[10px]  text-[#03a9f4] flex justify-center items-center"
+                                            rounded-[10px] dark:bg-white dark:border-0  text-[#03a9f4] flex justify-center items-center"
                   >
                     <Facebook className="secleup md:text-[40px] text-2xl leading-[120px]  sm:leading-[90px] fa fa-instagram" />
                   </Link>
                   <div
                     className="shadow-[0_0_50px_0_rgba(196,206,213,0.2)] hover:shadow-[0_0_150px_0_rgba(196,206,213,0.7)]  dark:shadow-[0_0_20px_0_rgba(0,0,0,0.1)] dark:hover:shadow-[0_0_50px_0_rgba(0,0,0,0.2)] hover:translate-y-[-10px] transition duration-500 w-[40px] h-[40px]  md:w-[60px] md:h-[50px] border border-[#ea4c89] text-center  
-                                rounded-[10px]  text-[#ea4c89] flex justify-center items-center"
+                                rounded-[10px] dark:bg-white dark:border-0 text-[#ea4c89] flex justify-center items-center"
                   >
                     <Instagram className="secleup md:text-[40px] text-2xl leading-[120px] [40px] sm:leading-[90px] fa fa-linkedin" />
                   </div>
                   <Link
                     href="https://www.linkedin.com/in/devmainuddin/"
                     className="shadow-[0_0_50px_0_rgba(196,206,213,0.2)] hover:shadow-[0_0_150px_0_rgba(196,206,213,0.7)]  dark:shadow-[0_0_20px_0_rgba(0,0,0,0.1)] dark:hover:shadow-[0_0_50px_0_rgba(0,0,0,0.2)] hover:translate-y-[-10px] transition duration-500  md:w-[60px] w-[40px] h-[40px] md:h-[50px] border border-[#007aaa] text-center  
-                                            rounded-[10px]  text-[#007aaa] flex justify-center items-center"
+                                            rounded-[10px] dark:bg-white dark:border-0  text-[#007aaa] flex justify-center items-center"
                   >
                     <Linkedin className="secleup md:text-[40px] text-2xl leading-[120px]  sm:leading-[90px] " />
                   </Link>
                   <Link
                     href="https://github.com/Devmdmainuddin/"
                     className="shadow-[0_0_50px_0_rgba(196,206,213,0.2)] hover:shadow-[0_0_150px_0_rgba(196,206,213,0.7)]  dark:shadow-[0_0_20px_0_rgba(0,0,0,0.1)] dark:hover:shadow-[0_0_50px_0_rgba(0,0,0,0.2)] hover:translate-y-[-10px] transition duration-500  md:w-[60px] w-[40px] h-[40px] md:h-[50px] border border-[#1f2328] text-center  
-                                            rounded-[10px]  text-[#1f2328] flex justify-center items-center"
+                                            rounded-[10px] dark:bg-white dark:border-0 text-[#1f2328] flex justify-center items-center"
                   >
                     <Github className="secleup md:text-[40px] text-2xl leading-[120px]  sm:leading-[90px] fa fa-linkedin" />
                     <i
@@ -122,7 +79,6 @@ const Hero = () => {
                 <div>
                   <ContactModal title="hire me" />
                 </div>
-                {/* <Link onClick={onButtonClick} className="text-xl font-medium py-3 px-7 border text-green-600  transition-all border-green-600 hover:bg-green-600 hover:text-white">dowanload cv</Link> */}
                 <Magnetic
                   intensity={0.2}
                   springOptions={springOptions}
@@ -133,7 +89,7 @@ const Hero = () => {
                     href="/CV-MD.MAINUDDIN.pdf"
                     download="CV-MD-MAINUDDIN"
                     target="_blank"
-                    className="text-xl font-medium capitalize py-3 px-7 border text-green-600 inline-block   transition-all duration-300 border-green-600 hover:bg-green-600 hover:text-white"
+                    className="text-xl font-medium capitalize py-3 px-7 border text-green-600 inline-block   transition-all duration-300 border-green-600 hover:bg-green-600 dark:bg-white dark:border-0 dark:hover:bg-green-600 hover:text-white"
                   >
                     <Magnetic
                       intensity={0.1}
@@ -148,69 +104,11 @@ const Hero = () => {
               </div>
             </div>
 
-            {/* <span className="absolute top-4 right-0">
-              <Image
-                src="/meteor-rain.png"
-                width={150}
-                height={150}
-                alt="image"
-                className="bg-transparent"
-              ></Image>
-            </span> */}
-            <div className="p-6 bg-white">
-              <Form {...form}>
-                <h2 className="text-zinc-900 dark:text-white"> Have any Questions? </h2>
-                <form
-                  onSubmit={form.handleSubmit(onSubmit)}
-                  className="mt-6 flex flex-col space-y-4"
-                >
-                  <FormField
-                    name="name"
-                    control={form.control}
-                    render={({field}) => (
-                      <FormItem>
-                        <FormControl>
-                          <Input placeholder="Enter your full name" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    name="email"
-                    control={form.control}
-                    render={({field}) => (
-                      <FormItem>
-                        <FormControl>
-                          <Input placeholder="Enter your email" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    name="message"
-                    control={form.control}
-                    render={({field}) => (
-                      <FormItem>
-                        <FormControl>
-                          <Textarea
-                            className="resize-none "
-                            placeholder="Enter your message"
-                            {...field}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <Button type="submit" variant="secondary" disabled={form.formState.isSubmitting}>
-                    {form.formState.isSubmitting ? "Submitting..." : "Submit Now"}
-                  </Button>
-                </form>
-              </Form>
-            </div>
+            
+           
+       <div className="w-[400px]">
+       <Form/>
+        </div>  
           </div>
 
           <div className="lg:block hidden w-2/3 -mt-[166] absolute -bottom-12 right-0">

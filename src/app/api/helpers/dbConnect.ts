@@ -9,7 +9,7 @@ let cached = global.mongoose;
 const MONGO_URI = process.env.MONGODB_URI || "";
 
 if (!cached) {
-  cached = global.mongoose = { conn: null, promise: null };
+  cached = global.mongoose = {conn: null, promise: null};
 }
 
 export const dbConnect = async () => {

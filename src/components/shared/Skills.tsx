@@ -1,3 +1,4 @@
+"use server"
 import Image from "next/image";
 import {BorderTrail} from "../ui/border-trail";
 import {Tilt} from "../ui/tilt";
@@ -19,9 +20,9 @@ const Skills = () => {
     {id: 12, src: "/nexauth.png", alt: "Docker"},
   ];
   return (
-    <div className="bg-white">
+    <div className="bg-[#E7F6F9] dark:bg-[#132334] py-[84px]">
       <Container>
-        <div className="relative text-3xl font-light tracking-[3px] uppercase text-[#282828] text-center  after:absolute after:-bottom-3 after:left-1/2 after:-translate-x-1/2 after:w-[80px] after:h-[2px] after:content-[''] after:bg-[#00CECB]">
+        <div className="relative text-3xl font-light tracking-[3px] uppercase text-[#282828] text-center  after:absolute after:-bottom-3 after:left-1/2 after:-translate-x-1/2 after:w-[80px] after:h-[2px] after:content-[''] after:bg-[#00CECB] dark:text-white">
           <h2>my skills</h2>
         </div>
 
@@ -64,7 +65,7 @@ const Skills = () => {
                 Backend developer
               </h2>
               <ul className="menus mt-4 flex flex-wrap gap-3">
-                <li className="skillsLi">Node</li>
+                <li className="skillsLi  ">Node</li>
                 <li className="skillsLi">Express</li>
                 <li className="skillsLi">MongDB</li>
                 <li className="skillsLi">Mongoose</li>

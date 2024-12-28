@@ -5,6 +5,7 @@ import Link from "next/link";
 import React from "react";
 import {Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger} from "@/components/ui/sheet";
 import {usePathname} from "next/navigation";
+import Container from "./Container";
 type NavLink = {
   href: string;
   text: string;
@@ -52,10 +53,11 @@ const Navbar = () => {
   ];
   return (
     <div className="dark:bg-[#131313] bg-gray-100 sticky top-0 z-50 border border-[#d5d5d5] dark:border-[#858484] border-b">
-      <div id="nav" className=" py-5  nav max-w-[1280px] mx-auto px-6 lg:px-8 font-Montserrat  ">
-        <div className=" flex items-center justify-between z-40">
+      <div id="nav" className="py-5">
+      <Container>
+      <div className=" flex items-center justify-between z-40">
           <Link href="" className="flex items-center gap-3 uppercase">
-            <Image src="/icn.png" alt="" width={220} height={220} className="w-10 h-10  " />
+            <Image src="/icn.png" alt="logo image" width={40} height={40} className="" />
             mainuddin
           </Link>
 
@@ -78,14 +80,12 @@ const Navbar = () => {
             </div>
             <div className="info">
               <p className="text-sm ">Have any Questions?</p>
-              <h5 className="text-[16px] text-sm tracking-[.5px]  ">
                 <a
                   className="text-[#282828] dark:text-white font-normal"
                   href="mailto:devmdmainuddin@gmail.com"
                 >
                   devmdmainuddin@gmail.com
                 </a>
-              </h5>
             </div>
           </div>
 
@@ -93,7 +93,7 @@ const Navbar = () => {
             <Sheet>
               <SheetTrigger>
                 {" "}
-                <Menu className="text-2xl  -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50" />
+                <Menu className="text-2xl -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50" />
               </SheetTrigger>
               <SheetContent>
                 <SheetHeader>
@@ -102,10 +102,10 @@ const Navbar = () => {
                       <Link href="" className="flex items-center gap-3 uppercase">
                         <Image
                           src="/icn.png"
-                          alt=""
-                          width={220}
-                          height={220}
-                          className="w-10 h-10 "
+                          alt="logo image"
+                          width={40}
+                          height={40}
+                          className=""
                         />
                         mainuddin
                       </Link>
@@ -134,6 +134,8 @@ const Navbar = () => {
             </Sheet>
           </div>
         </div>
+      </Container>
+        
       </div>
     </div>
   );

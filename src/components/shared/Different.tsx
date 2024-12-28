@@ -1,3 +1,4 @@
+"use server"
 import Image from "next/image";
 import Container from "./Container";
 import {BorderTrail} from "@/components/ui/border-trail";
@@ -77,10 +78,10 @@ const Different = () => {
     },
   ];
   return (
-    <div className="my-[120px]">
+    <div className="py-[120px] dark:bg-gradient-to-r dark:from-[#272B2F] dark:to-[#77828A]  bg-gradient-to-r from-[#BDE5ED] to-[#DCF1F6]">
       <Container>
         <div className="w-full mx-auto">
-          <h2 className="text-3xl font-light tracking-[3px] uppercase text-[#282828] ">
+          <h2 className="text-3xl font-light tracking-[3px] uppercase text-[#282828] dark:text-white">
             Why I&apos;m Different?
           </h2>
           <p className="mt-2 text-sm">
@@ -99,14 +100,14 @@ const Different = () => {
                 <Image
                   src={Item.image}
                   alt="Image"
-                  width={220}
-                  height={220}
-                  className="w-[80px] h-[80px] rounded-full"
+                  width={80}
+                  height={80}
+                  className=" rounded-full"
                 ></Image>
               </div>
-              <div className="content">
+              <div className="content mt-6">
                 <h2 className="text-[20px] mb-2.5 font-semibold leading-[1.2] ">{Item.title}</h2>
-                <p className="text-sm text-[#282828]">{Item.description} </p>
+                <p className="text-sm text-[#282828] dark:text-[#ebeaea]">{Item.description} </p>
               </div>
 
               <BorderTrail

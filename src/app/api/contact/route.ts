@@ -1,10 +1,10 @@
 import {NextRequest, NextResponse} from "next/server";
 import contact from "./model";
-import { dbConnect } from "../helpers";
+import {dbConnect} from "../helpers";
 export async function POST(req: NextRequest) {
   try {
     await dbConnect();
-    const { firstName, lastName, phone, email, message} = await req.json();
+    const {firstName, lastName, phone, email, message} = await req.json();
     const newContact = new contact({
       firstName,
       lastName,
@@ -33,12 +33,11 @@ export async function GET() {
   } catch (error) {
     console.error("Error:", error);
     return NextResponse.json(
-      { message: "There was an error fetching the contacts. Please try again." },
-      { status: 500 }
+      {message: "There was an error fetching the contacts. Please try again."},
+      {status: 500},
     );
   }
 }
-
 
 // DELETE method to remove a contact by ID
 export async function DELETE(req: NextRequest) {
@@ -47,26 +46,20 @@ export async function DELETE(req: NextRequest) {
 
     const contactId = req.nextUrl.searchParams.get("contactId");
     if (!contactId) {
-      return NextResponse.json(
-        { message: "Contact ID is required." },
-        { status: 400 }
-      );
+      return NextResponse.json({message: "Contact ID is required."}, {status: 400});
     }
     const deletedContact = await contact.findByIdAndDelete(contactId);
 
     if (!deletedContact) {
-      return NextResponse.json(
-        { message: "Contact not found." },
-        { status: 404 }
-      );
+      return NextResponse.json({message: "Contact not found."}, {status: 404});
     }
 
-    return NextResponse.json({ message: "Contact deleted successfully!" });
+    return NextResponse.json({message: "Contact deleted successfully!"});
   } catch (error) {
     console.error("Error:", error);
     return NextResponse.json(
-      { message: "There was an error deleting the contact. Please try again." },
-      { status: 500 }
+      {message: "There was an error deleting the contact. Please try again."},
+      {status: 500},
     );
   }
 }

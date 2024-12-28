@@ -6,7 +6,7 @@ import Container from "./Container";
 const Footer = () => {
   return (
     <footer>
-      <section className="bg-gray-50 dark:bg-black overflow-hidden">
+      <section className="bg-[#D9E8F3] dark:bg-black overflow-hidden">
         <div className="py-24">
           <Container>
             <div className="flex flex-wrap justify-center -m-8 mb-12">

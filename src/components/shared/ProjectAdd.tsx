@@ -1,9 +1,9 @@
+"use client";
 import React from "react";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
+import {useForm} from "react-hook-form";
+import {z} from "zod";
+import {zodResolver} from "@hookform/resolvers/zod";
 
-// Define the schema using zod
 const projectSchema = z.object({
   title: z.string().nonempty("Title is required"),
   image: z.string().url("Invalid URL for Image").nonempty("Image URL is required"),
@@ -23,7 +23,7 @@ const AddProjectForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: {errors},
     reset,
   } = useForm<ProjectFormData>({
     resolver: zodResolver(projectSchema),
@@ -32,7 +32,7 @@ const AddProjectForm = () => {
   const onSubmit = async (data: ProjectFormData) => {
     const projectData = {
       ...data,
-      tags: data.tags.split(","), 
+      tags: data.tags.split(","),
     };
 
     try {

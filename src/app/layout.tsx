@@ -13,9 +13,10 @@ import {
   TvMinimalPlay,
   UserRound,
 } from "lucide-react";
-import {HomeIcon, ScrollText, SunMoon} from "lucide-react";
+import {HomeIcon, ScrollText} from "lucide-react";
 import {Dock, DockIcon, DockItem, DockLabel} from "@/components/ui/dock";
 import Footer from "@/components/shared/Footer";
+import ThemeSwitcher from "@/components/shared/ThemeSwitcher";
 
 const data = [
   {
@@ -36,17 +37,12 @@ const data = [
   {
     title: "Contact",
     icon: <MessageSquareText className="h-full w-full text-neutral-600 dark:text-neutral-300" />,
-    href: "Contact",
+    href: "contact",
   },
   {
     title: "Blog",
     icon: <ScrollText className="h-full w-full text-neutral-600 dark:text-neutral-300" />,
     href: "blog",
-  },
-  {
-    title: "Theme",
-    icon: <SunMoon className="h-full w-full text-neutral-600 dark:text-neutral-300" />,
-    href: "#",
   },
 ];
 
@@ -77,70 +73,78 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Footer />
-        </ThemeProvider>
-        <div className=" flex flex-col fixed top-[40%] left-0  ">
-          <li
-            className={
-              "flex justify-center items-center w-[180px]  bg-[#e6e9ebfc] text-sm py-2 px-4 text-white rounded-tr-md rounded-br-md  ml-[-132px] hover:ml-0 transition-all duration-300"
-            }
-          >
-            <Link
-              href="https://www.facebook.com/profile.php?id=100006959283779"
-              className="flex justify-between items-center w-full text-[#03a9f4]"
-            >
-              Facebook <Facebook size={22} className="secleup" />
-            </Link>
-          </li>
-          <li
-            className={
-              "flex justify-center items-center w-[180px] bg-[#e6e9ebfc] text-sm py-2 px-4 rounded-tr-md rounded-br-md text-[#fe0761] ml-[-132px] hover:ml-0 transition-all duration-300"
-            }
-          >
-            <Link href="" className="flex justify-between items-center w-full">
-              Instagram <Instagram size={22} className="secleup" />{" "}
-            </Link>
-          </li>
-          <li
-            className={
-              "flex justify-center items-center w-[180px]  bg-[#e6e9ebfb] text-sm py-2 px-4 text-[#27ace0] rounded-tr-md rounded-br-md  ml-[-132px] hover:ml-0 transition-all duration-300"
-            }
-          >
-            <Link
-              href="https://www.linkedin.com/in/devmainuddin/"
-              className="flex justify-between items-center w-full"
-            >
-              {" "}
-              LinkedinIn <Linkedin size={22} className="secleup" />{" "}
-            </Link>
-          </li>
-          <li
-            className={
-              "flex justify-center items-center w-[180px]  bg-[#e8e8e8]  text-sm py-2 px-4 text-[#1f2328] rounded-tr-md rounded-br-md  ml-[-132px] hover:ml-0 transition-all duration-300"
-            }
-          >
-            <Link
-              href="https://github.com/Devmdmainuddin/"
-              className="flex justify-between items-center w-full "
-            >
-              {" "}
-              Github <Github size={22} className="secleup" />{" "}
-            </Link>
-          </li>
-        </div>
 
-        <div className=" fixed bottom-2 left-1/2 max-w-full -translate-x-1/2">
-          <Dock className="items-end pb-3">
-            {data.map((item, idx) => (
-              <Link key={idx} href={item.href}>
-                <DockItem className="aspect-square rounded-full bg-gray-200 dark:bg-neutral-800">
-                  <DockLabel>{item.title}</DockLabel>
-
-                  <DockIcon className="secleup">{item.icon}</DockIcon>
-                </DockItem>
+          <div className=" flex flex-col fixed top-[40%] left-0  ">
+            <li
+              className={
+                "flex justify-center items-center w-[180px]  bg-[#e6e9ebfc] text-sm py-2 px-4 text-white rounded-tr-md rounded-br-md  ml-[-132px] hover:ml-0 transition-all duration-300"
+              }
+            >
+              <Link
+                href="https://www.facebook.com/profile.php?id=100006959283779"
+                className="flex justify-between items-center w-full text-[#03a9f4]"
+              >
+                Facebook <Facebook size={22} className="secleup" />
               </Link>
-            ))}
-          </Dock>
-        </div>
+            </li>
+            <li
+              className={
+                "flex justify-center items-center w-[180px] bg-[#e6e9ebfc] text-sm py-2 px-4 rounded-tr-md rounded-br-md text-[#fe0761] ml-[-132px] hover:ml-0 transition-all duration-300"
+              }
+            >
+              <Link href="" className="flex justify-between items-center w-full">
+                Instagram <Instagram size={22} className="secleup" />{" "}
+              </Link>
+            </li>
+            <li
+              className={
+                "flex justify-center items-center w-[180px]  bg-[#e6e9ebfb] text-sm py-2 px-4 text-[#27ace0] rounded-tr-md rounded-br-md  ml-[-132px] hover:ml-0 transition-all duration-300"
+              }
+            >
+              <Link
+                href="https://www.linkedin.com/in/devmainuddin/"
+                className="flex justify-between items-center w-full"
+              >
+                {" "}
+                LinkedinIn <Linkedin size={22} className="secleup" />{" "}
+              </Link>
+            </li>
+            <li
+              className={
+                "flex justify-center items-center w-[180px]  bg-[#e8e8e8]  text-sm py-2 px-4 text-[#1f2328] rounded-tr-md rounded-br-md  ml-[-132px] hover:ml-0 transition-all duration-300"
+              }
+            >
+              <Link
+                href="https://github.com/Devmdmainuddin/"
+                className="flex justify-between items-center w-full "
+              >
+                {" "}
+                Github <Github size={22} className="secleup" />{" "}
+              </Link>
+            </li>
+          </div>
+
+          <div className=" fixed bottom-2 left-1/2 max-w-full -translate-x-1/2">
+            <Dock className="items-end pb-3">
+              {data.map((item, idx) => (
+                <Link key={idx} href={item.href}>
+                  <DockItem className="aspect-square rounded-full bg-gray-200 dark:bg-neutral-800">
+                    <DockLabel>{item.title}</DockLabel>
+
+                    <DockIcon className="secleup">{item.icon}</DockIcon>
+                  </DockItem>
+                </Link>
+              ))}
+
+              <DockItem className="aspect-square rounded-full bg-gray-200  dark:bg-neutral-800">
+                <DockLabel>Theme</DockLabel>
+                <DockIcon className="secleup flex justify-center items-center">
+                  <ThemeSwitcher />
+                </DockIcon>
+              </DockItem>
+            </Dock>
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );
