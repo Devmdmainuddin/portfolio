@@ -11,8 +11,6 @@ const ContactPage = async () => {
   return (
     <div className="bg-[#D0EBEB] dark:bg-[#738188] capitalize">
       <Container>
-        <h1>Contact List</h1>
-
         <section className="py-8">
           <div className="container px-4 mx-auto">
             <div className="p-4 mb-6 bg-white shadow rounded overflow-x-auto">

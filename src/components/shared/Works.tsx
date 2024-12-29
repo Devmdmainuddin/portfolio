@@ -1,4 +1,3 @@
-
 import Container from "./Container";
 
 const Works = async () => {
@@ -13,9 +12,7 @@ const Works = async () => {
           procured exceptional results while working with Me.
         </p>
 
-        <div>
-        
-        </div>
+        <div></div>
       </Container>
     </div>
   );

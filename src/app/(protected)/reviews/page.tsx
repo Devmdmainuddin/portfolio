@@ -1,35 +1,33 @@
 "use server";
 import React from "react";
 import Container from "@/components/shared/Container";
-import {fetchContacts} from "@/app/actions/actions";
+import {fetchReviews} from "@/app/actions/actions";
 import {ChevronLeft, ChevronRight, Trash2} from "lucide-react";
 import Image from "next/image";
 
-const ContactPage = async () => {
-  const contacts = await fetchContacts();
-  console.log(contacts);
+const Reviews = async () => {
+  const reviews = await fetchReviews();
+
   return (
     <div className="bg-[#D0EBEB] dark:bg-[#738188] capitalize">
       <Container>
-        <h1>Contact List</h1>
-
         <section className="py-8">
           <div className="container px-4 mx-auto">
             <div className="p-4 mb-6 bg-white shadow rounded overflow-x-auto">
               <table className="table-auto w-full">
                 <thead>
                   <tr className="text-xs text-gray-500 text-left">
-                    <th className="pl-6 pb-3 font-medium">Contact ID</th>
+                    <th className="pl-6 pb-3 font-medium">Review ID</th>
                     <th className="pb-3 font-medium">User</th>
                     <th className="pb-3 font-medium">Date</th>
-                    <th className="pb-3 font-medium">Message</th>
+                    <th className="pb-3 font-medium">Comments</th>
                     <th className="pb-3 font-medium">Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {contacts.map((contact) => (
-                    <tr key={contact._id} className="text-xs bg-gray-100">
-                      <td className="py-5 px-6 font-medium">#{contact._id}</td>
+                  {reviews?.map((review) => (
+                    <tr key={review._id} className="text-xs bg-gray-100">
+                      <td className="py-5 px-6 font-medium">#{review._id}</td>
                       <td className="flex px-4 py-3">
                         <Image
                         width={50}
@@ -40,22 +38,22 @@ const ContactPage = async () => {
                         />
                         <div>
                           <p className="font-medium">
-                            {contact.firstName} {contact.lastName}
+                            {review.name} 
                           </p>
                           <p className="text-gray-500">
                             <a href="#">
-                              {contact.email}
+                              {review.email}
                             </a>
                           </p>
                         </div>
                       </td>
                       <td className="font-medium">
-                        {contact.createdAt ? new Date(contact.createdAt).toLocaleString() : "N/A"}
+                        {review.createdAt ? new Date(review.createdAt).toLocaleString() : "N/A"}
                       </td>
 
                       <td>
                         <span className="inline-block py-1 px-2 ">
-                          {contact.message}
+                          {review.comment}
                         </span>
                       </td>
                       <td>
@@ -135,4 +133,4 @@ const ContactPage = async () => {
   );
 };
 
-export default ContactPage;
+export default Reviews;

@@ -17,4 +17,15 @@ export interface IContact extends Document {
   email: string;
   phone?: number;
   message?: string;
+  createdAt?: Date;
+}
+export interface Ireview extends Document {
+  _id: string;
+  name:string; 
+  professionName: string;
+  profession: string;
+  email: string;
+  rating: number;
+  comment: string;
+  createdAt: Date;
 }

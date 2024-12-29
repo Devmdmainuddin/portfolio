@@ -9,7 +9,7 @@ import Form from "./Form";
 
 const Hero = () => {
   const springOptions = {bounce: 0.1};
- return (
+  return (
     <div className="bg-[#D0EBEB] dark:bg-[#738188] capitalize">
       <Container>
         <div className="relative">
@@ -104,11 +104,9 @@ const Hero = () => {
               </div>
             </div>
 
-            
-           
-       <div className="w-[400px]">
-       <Form/>
-        </div>  
+            <div className="w-[400px]">
+              <Form />
+            </div>
           </div>
 
           <div className="lg:block hidden w-2/3 -mt-[166] absolute -bottom-12 right-0">

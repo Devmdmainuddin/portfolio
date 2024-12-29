@@ -52,7 +52,9 @@ const Form = () => {
       <form onSubmit={handleSubmit(onSubmit)} method="post">
         <div className="w-full p-6 bg-slate-50 shadow-2xl  rounded-sm">
           <div className="">
-            <h2 className="text-lg font-semibold leading-none tracking-tight text-zinc-900 ">Have any Questions?</h2>
+            <h2 className="text-lg font-semibold leading-none tracking-tight text-zinc-900 ">
+              Have any Questions?
+            </h2>
             <h3 className="text-sm text-zinc-900 ">Meet me</h3>
           </div>
           <div className="grid grid-cols-1 gap-5 mt-5 md:grid-cols-2">

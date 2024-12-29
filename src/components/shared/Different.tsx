@@ -1,4 +1,4 @@
-"use server"
+"use server";
 import Image from "next/image";
 import Container from "./Container";
 import {BorderTrail} from "@/components/ui/border-trail";

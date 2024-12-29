@@ -1,7 +1,6 @@
 import React from "react";
 import {
   Dialog,
-  
   DialogContent,
   DialogDescription,
   DialogHeader,
@@ -10,14 +9,11 @@ import {
 } from "@/components/ui/dialog";
 import ContactForm from "./Forms";
 
-
 interface ContactModalProps {
   title: string;
 }
 
 const ContactModal: React.FC<ContactModalProps> = ({title}) => {
-
-
   return (
     <div>
       <Dialog>
@@ -29,8 +25,7 @@ const ContactModal: React.FC<ContactModalProps> = ({title}) => {
               Meet me
             </DialogDescription>
           </DialogHeader>
-          <ContactForm/>
-
+          <ContactForm />
         </DialogContent>
       </Dialog>
     </div>

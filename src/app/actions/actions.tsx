@@ -1,4 +1,4 @@
-import {IContact, IProject} from "../(public)/httpActions/projects/types";
+import {IContact, IProject, Ireview} from "../(public)/httpActions/types";
 
 export const fetchContacts = async (): Promise<IContact[]> => {
   try {
@@ -24,6 +24,20 @@ export const fetchProjects = async (): Promise<IProject[]> => {
     return data.Project;
   } catch (error) {
     console.error("Error fetching Project:", error);
+    return [];
+  }
+};
+
+export const fetchReviews = async (): Promise<Ireview[]> => {
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/review`);
+    if (!response.ok) {
+      throw new Error("Failed to fetch Reviews data from server");
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching Reviews:", error);
     return [];
   }
 };

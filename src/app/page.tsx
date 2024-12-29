@@ -6,17 +6,20 @@ import Different from "@/components/shared/Different";
 import Skills from "@/components/shared/Skills";
 // import AddProjectForm from "@/components/shared/ProjectAdd";
 import Project from "@/components/shared/Project";
+import Testimonial from "@/components/shared/Testimonial";
+import ReviewForm from "@/components/shared/ReviewForm";
 const Home = () => {
   return (
     <div>
       <Hero />
-      {/* <AddProjectForm /> */}
+      <ReviewForm/>
       <About />
       <Skills />
       <Services />
       <Different />
-      <Contact />
       <Project />
+      <Contact />
+      <Testimonial/>
     </div>
   );
 };

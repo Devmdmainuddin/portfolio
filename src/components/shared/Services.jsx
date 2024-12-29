@@ -1,4 +1,4 @@
-"use server"
+"use server";
 import {Tilt} from "../ui/tilt";
 import Container from "./Container";
 

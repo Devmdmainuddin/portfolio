@@ -1,4 +1,4 @@
-"use server"
+"use server";
 import Container from "@/components/shared/Container";
 import {Magnetic} from "@/components/ui/magnetic";
 import Image from "next/image";
@@ -20,7 +20,6 @@ const About = () => {
               className="max-w-[400px] h-[400px] p-2 secleup  transition-all duration-300"
             />
           </div>
-          
 
           <div className="flex-1">
             <h2 className="font-semibold text-3xl tracking-[3px] uppercase font-Montserrat">
@@ -36,39 +35,25 @@ const About = () => {
             </p>
             <ul className="menus capitalize mt-2">
               <li className=" text-sm leading-8 font-Montserrat ">
-                <span className="text-black  text-[16px] font-semibold">
-                  Name :{" "}
-                </span>{" "}
-                md.main uddin
+                <span className="text-black  text-[16px] font-semibold">Name : </span> md.main uddin
               </li>
               <li className=" text-sm leading-8 font-Montserrat">
-                <span className="text-black  text-[16px] font-semibold">
-                  Date of birth :{" "}
-                </span>{" "}
+                <span className="text-black  text-[16px] font-semibold">Date of birth : </span>{" "}
                 octobar 25,1994{" "}
               </li>
               <li className=" text-sm leading-8 font-Montserrat ">
-                <span className="text-black  text-[16px] font-semibold">
-                  Address :{" "}
-                </span>{" "}
-                madhabpur , habigonj , sylhet{" "}
+                <span className="text-black  text-[16px] font-semibold">Address : </span> madhabpur
+                , habigonj , sylhet{" "}
               </li>
               <li className=" text-sm leading-8 font-Montserrat ">
-                <span className="text-black  text-[16px] font-semibold">
-                  Zip code :{" "}
-                </span>{" "}
-                3331{" "}
+                <span className="text-black  text-[16px] font-semibold">Zip code : </span> 3331{" "}
               </li>
               <li className=" text-sm leading-8 font-Montserrat">
-                <span className="text-black  text-[16px] font-semibold">
-                  Email :{" "}
-                </span>
+                <span className="text-black  text-[16px] font-semibold">Email : </span>
                 <a href="mailto:devmdmainuddin@gmail.com"> devmdmainuddin@gmail.com </a>{" "}
               </li>
               <li className=" text-sm leading-8 font-Montserrat">
-                <span className="text-black  text-[16px] font-semibold">
-                  Phone :{" "}
-                </span>
+                <span className="text-black  text-[16px] font-semibold">Phone : </span>
                 <a href="tel:+8801759483544"> 01759483544</a>{" "}
               </li>
             </ul>

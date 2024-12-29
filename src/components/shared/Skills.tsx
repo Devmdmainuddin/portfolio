@@ -1,4 +1,4 @@
-"use server"
+"use server";
 import Image from "next/image";
 import {BorderTrail} from "../ui/border-trail";
 import {Tilt} from "../ui/tilt";
