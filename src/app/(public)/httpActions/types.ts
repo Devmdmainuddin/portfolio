@@ -21,7 +21,7 @@ export interface IContact extends Document {
 }
 export interface Ireview extends Document {
   _id: string;
-  name:string; 
+  name: string;
   professionName: string;
   profession: string;
   email: string;

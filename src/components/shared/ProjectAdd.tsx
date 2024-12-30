@@ -2,7 +2,7 @@
 import React from "react";
 import {useForm} from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod";
-import { ProjectFormData, projectSchema } from "@/app/validation/projectSchema";
+import {ProjectFormData, projectSchema} from "@/app/validation/projectSchema";
 
 const AddProjectForm = () => {
   const {

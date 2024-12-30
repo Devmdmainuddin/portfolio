@@ -4,10 +4,28 @@ import Container from "@/components/shared/Container";
 
 import {ChevronLeft, ChevronRight, Eye, FilePenLine, Trash2} from "lucide-react";
 import Image from "next/image";
-import {fetchProjects} from "@/app/actions/actions";
+import { fetchProjects} from "@/app/actions/actions";
+import Link from "next/link";
 
 const Project = async () => {
   const project = await fetchProjects();
+
+// const hendleDelete = (id: string) => {
+//   deleteProject(id)
+//     .then((isDeleted) => {
+//       if (isDeleted) {
+//         console.log(`Project with ID ${id} deleted successfully.`);
+//       } else {
+//         console.log(`Failed to delete project with ID ${id}.`);
+//       }
+//     })
+//     .catch((error) => {
+//       console.error("Error:", error);
+//     });
+// };
+
+  
+
   return (
     <div className="bg-[#D0EBEB] dark:bg-[#738188] capitalize">
       <Container>
@@ -26,10 +44,7 @@ const Project = async () => {
                 </thead>
                 <tbody>
                   {project.map((item) => (
-                    <tr
-                      key={item._id}
-                      className="text-xs bg-gray-100 border-b border-gray-300 "
-                    >
+                    <tr key={item._id} className="text-xs bg-gray-100 border-b border-gray-300 ">
                       <td className="py-5 px-6 font-medium">#{item._id}</td>
                       <td className="inline-block w-[120px] h-[120px]">
                         <Image
@@ -49,15 +64,16 @@ const Project = async () => {
                       </td>
                       <td>
                         <div className="flex gap-1 items-center ">
-                          <a className="inline-block" href="#">
+                          <Link className="inline-block" href="#">
                             <Eye className="text-sm w-6 h-6 bg-red-100 p-1 rounded-sm" />
-                          </a>
-                          <a className="inline-block" href="#">
+                          </Link>
+                          <Link className="inline-block" href={`/project/${item._id}`}>
                             <FilePenLine className="text-sm w-6 h-6 bg-red-100 p-1 rounded-sm" />
-                          </a>
-                          <a className="inline-block" href="#">
+                          </Link>
+
+                          <button  className="inline-block">
                             <Trash2 className="text-sm w-6 h-6 bg-red-100 p-1 rounded-sm" />
-                          </a>
+                          </button>
                         </div>
                       </td>
                     </tr>

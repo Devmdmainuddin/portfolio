@@ -253,10 +253,7 @@ const Project = async () => {
                 </article>
               ))}
             </TabsContent>
-            <TabsContent
-              value="Blogs"
-              className="w-full grid grid-cols-1 lg:grid-cols-2  gap-6 "
-            >
+            <TabsContent value="Blogs" className="w-full grid grid-cols-1 lg:grid-cols-2  gap-6 ">
               {project.map((item, idx) => (
                 <article
                   key={idx}
@@ -352,10 +349,7 @@ const Project = async () => {
                 </article>
               ))}
             </TabsContent>
-            <TabsContent
-              value="Travels"
-              className="w-full grid grid-cols-1 lg:grid-cols-2  gap-6 "
-            >
+            <TabsContent value="Travels" className="w-full grid grid-cols-1 lg:grid-cols-2  gap-6 ">
               {project.map((item, idx) => (
                 <article
                   key={idx}
@@ -455,7 +449,7 @@ const Project = async () => {
               value="Portfolio"
               className="w-full grid grid-cols-1 lg:grid-cols-2  gap-6 "
             >
-             {project.map((item, idx) => (
+              {project.map((item, idx) => (
                 <article
                   key={idx}
                   className="flex md:flex-row flex-col bg-white dark:bg-black transition-all duration-300 hover:shadow-xl"

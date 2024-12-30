@@ -16,11 +16,11 @@ export const dbConnect = async () => {
 
   if (cached.connection) {
     return cached.connection;
-}
+  }
 
   if (!cached.promise) {
     const opts = {
-      bufferCommands: false
+      bufferCommands: false,
     };
     cached.promise = mongoose.connect(MONGO_URI, opts).then((mongoose) => mongoose);
   }

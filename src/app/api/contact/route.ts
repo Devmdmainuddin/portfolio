@@ -40,26 +40,4 @@ export async function GET() {
 }
 
 // DELETE method to remove a contact by ID
-export async function DELETE(req: NextRequest) {
-  try {
-    await dbConnect();
 
-    const contactId = req.nextUrl.searchParams.get("contactId");
-    if (!contactId) {
-      return NextResponse.json({message: "Contact ID is required."}, {status: 400});
-    }
-    const deletedContact = await contact.findByIdAndDelete(contactId);
-
-    if (!deletedContact) {
-      return NextResponse.json({message: "Contact not found."}, {status: 404});
-    }
-
-    return NextResponse.json({message: "Contact deleted successfully!"});
-  } catch (error) {
-    console.error("Error:", error);
-    return NextResponse.json(
-      {message: "There was an error deleting the contact. Please try again."},
-      {status: 500},
-    );
-  }
-}

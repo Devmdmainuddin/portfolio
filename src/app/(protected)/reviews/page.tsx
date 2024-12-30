@@ -30,20 +30,16 @@ const Reviews = async () => {
                       <td className="py-5 px-6 font-medium">#{review._id}</td>
                       <td className="flex px-4 py-3">
                         <Image
-                        width={50}
-                        height={50}
+                          width={50}
+                          height={50}
                           className="w-8 h-8 mr-4 object-cover rounded-sm"
                           src="https://images.unsplash.com/photo-1559893088-c0787ebfc084?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
                           alt=""
                         />
                         <div>
-                          <p className="font-medium">
-                            {review.name} 
-                          </p>
+                          <p className="font-medium">{review.name}</p>
                           <p className="text-gray-500">
-                            <a href="#">
-                              {review.email}
-                            </a>
+                            <a href="#">{review.email}</a>
                           </p>
                         </div>
                       </td>
@@ -52,13 +48,11 @@ const Reviews = async () => {
                       </td>
 
                       <td>
-                        <span className="inline-block py-1 px-2 ">
-                          {review.comment}
-                        </span>
+                        <span className="inline-block py-1 px-2 ">{review.comment}</span>
                       </td>
                       <td>
                         <a className="inline-block" href="#">
-                          <Trash2 className="text-sm w-6 h-6 bg-red-100 p-1 rounded-full"/>
+                          <Trash2 className="text-sm w-6 h-6 bg-red-100 p-1 rounded-full" />
                         </a>
                       </td>
                     </tr>
@@ -84,7 +78,7 @@ const Reviews = async () => {
                   className="inline-flex mr-3 items-center justify-center w-8 h-8 text-xs text-gray-500 border border-gray-300 bg-white hover:bg-indigo-50 rounded"
                   href="#"
                 >
-                  <ChevronLeft className="w-5 h-5"/>
+                  <ChevronLeft className="w-5 h-5" />
                 </a>
                 <a
                   className="inline-flex mr-3 items-center justify-center w-8 h-8 text-xs text-gray-500 border border-gray-300 bg-white hover:bg-indigo-50 rounded"
@@ -92,7 +86,7 @@ const Reviews = async () => {
                 >
                   1
                 </a>
-              
+
                 <a
                   className="inline-flex mr-3 items-center justify-center w-8 h-8 text-xs text-white bg-indigo-500 rounded"
                   href="#"
@@ -111,7 +105,7 @@ const Reviews = async () => {
                 >
                   14
                 </a>
-               
+
                 <a
                   className="inline-flex mr-3 items-center justify-center w-8 h-8 text-xs border border-gray-300 bg-white hover:bg-indigo-50 rounded"
                   href="#"
@@ -122,7 +116,7 @@ const Reviews = async () => {
                   className="inline-flex items-center justify-center w-8 h-8 text-xs text-gray-500 border border-gray-300 bg-white hover:bg-indigo-50 rounded"
                   href="#"
                 >
-                  <ChevronRight className="w-5 h-5"/>
+                  <ChevronRight className="w-5 h-5" />
                 </a>
               </div>
             </div>

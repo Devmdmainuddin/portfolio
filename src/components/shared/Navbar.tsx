@@ -45,8 +45,6 @@ const Navbar = () => {
       text: "Contact",
       icon: "/icn.png",
     },
-    
-   
   ];
   return (
     <div className="dark:bg-[#131313] bg-gray-100 sticky top-0 z-50 border border-[#d5d5d5] dark:border-[#858484] border-b">

@@ -6,8 +6,7 @@ import {zodResolver} from "@hookform/resolvers/zod";
 import {Facebook, Github, Instagram, Linkedin} from "lucide-react";
 import Link from "next/link";
 import Container from "./Container";
-import { ContactFormData, contactFormSchema } from "@/app/validation/contactSchema";
-
+import {ContactFormData, contactFormSchema} from "@/app/validation/contactSchema";
 
 const Contact = () => {
   const springOptions = {bounce: 0.1};

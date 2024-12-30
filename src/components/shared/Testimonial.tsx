@@ -39,7 +39,9 @@ const Testimonial = () => {
                             fill="currentColor"
                           />
                         </svg>
-                        <span className="text-base font-semibold text-indigo-600 dark:text-[#a4a3a3]">4.9</span>
+                        <span className="text-base font-semibold text-indigo-600 dark:text-[#a4a3a3]">
+                          4.9
+                        </span>
                       </div>
                       <p className="text-base text-[#282828] dark:text-[#a4a3a3] leading-6  transition-all duration-500 pb-8  ">
                         Pagedone has made it possible for me to stay on top of my portfolio and make
@@ -48,8 +50,8 @@ const Testimonial = () => {
                     </div>
                     <div className="flex items-center gap-5 border-t border-solid border-gray-200 pt-5">
                       <Image
-                      width={40}
-                      height={40}
+                        width={40}
+                        height={40}
                         className="rounded-full h-10 w-10 object-cover"
                         src="https://pagedone.io/asset/uploads/1696229969.png"
                         alt="avatar"
@@ -58,7 +60,9 @@ const Testimonial = () => {
                         <h5 className="text-gray-900 dark:text-[#a4a3a3] font-medium transition-all duration-500  mb-1">
                           Jane D
                         </h5>
-                        <span className="text-sm leading-4 text-[#282828] dark:text-[#a4a3a3]">CEO </span>
+                        <span className="text-sm leading-4 text-[#282828] dark:text-[#a4a3a3]">
+                          CEO{" "}
+                        </span>
                       </div>
                     </div>
                     <BorderTrail
@@ -84,7 +88,9 @@ const Testimonial = () => {
                             fill="currentColor"
                           />
                         </svg>
-                        <span className="text-base font-semibold text-indigo-600 dark:text-[#a4a3a3]">4.9</span>
+                        <span className="text-base font-semibold text-indigo-600 dark:text-[#a4a3a3]">
+                          4.9
+                        </span>
                       </div>
                       <p className="text-base text-[#282828] dark:text-[#a4a3a3] leading-6  transition-all duration-500 pb-8  ">
                         Pagedone has made it possible for me to stay on top of my portfolio and make
@@ -93,8 +99,8 @@ const Testimonial = () => {
                     </div>
                     <div className="flex items-center gap-5 border-t border-solid border-gray-200 pt-5">
                       <Image
-                      width={40}
-                      height={40}
+                        width={40}
+                        height={40}
                         className="rounded-full h-10 w-10 object-cover"
                         src="https://pagedone.io/asset/uploads/1696229969.png"
                         alt="avatar"
@@ -103,7 +109,9 @@ const Testimonial = () => {
                         <h5 className="text-gray-900 dark:text-[#a4a3a3] font-medium transition-all duration-500  mb-1">
                           Jane D
                         </h5>
-                        <span className="text-sm leading-4 text-[#282828] dark:text-[#a4a3a3]">CEO </span>
+                        <span className="text-sm leading-4 text-[#282828] dark:text-[#a4a3a3]">
+                          CEO{" "}
+                        </span>
                       </div>
                     </div>
                     <BorderTrail
@@ -129,7 +137,9 @@ const Testimonial = () => {
                             fill="currentColor"
                           />
                         </svg>
-                        <span className="text-base font-semibold text-indigo-600 dark:text-[#a4a3a3]">4.9</span>
+                        <span className="text-base font-semibold text-indigo-600 dark:text-[#a4a3a3]">
+                          4.9
+                        </span>
                       </div>
                       <p className="text-base text-[#282828] dark:text-[#a4a3a3] leading-6  transition-all duration-500 pb-8  ">
                         Pagedone has made it possible for me to stay on top of my portfolio and make
@@ -138,8 +148,8 @@ const Testimonial = () => {
                     </div>
                     <div className="flex items-center gap-5 border-t border-solid border-gray-200 pt-5">
                       <Image
-                      width={40}
-                      height={40}
+                        width={40}
+                        height={40}
                         className="rounded-full h-10 w-10 object-cover"
                         src="https://pagedone.io/asset/uploads/1696229969.png"
                         alt="avatar"
@@ -148,7 +158,9 @@ const Testimonial = () => {
                         <h5 className="text-gray-900 dark:text-[#a4a3a3] font-medium transition-all duration-500  mb-1">
                           Jane D
                         </h5>
-                        <span className="text-sm leading-4 text-[#282828] dark:text-[#a4a3a3]">CEO </span>
+                        <span className="text-sm leading-4 text-[#282828] dark:text-[#a4a3a3]">
+                          CEO{" "}
+                        </span>
                       </div>
                     </div>
                     <BorderTrail
@@ -174,7 +186,9 @@ const Testimonial = () => {
                             fill="currentColor"
                           />
                         </svg>
-                        <span className="text-base font-semibold text-indigo-600 dark:text-[#a4a3a3]">4.9</span>
+                        <span className="text-base font-semibold text-indigo-600 dark:text-[#a4a3a3]">
+                          4.9
+                        </span>
                       </div>
                       <p className="text-base text-[#282828] dark:text-[#a4a3a3] leading-6  transition-all duration-500 pb-8  ">
                         Pagedone has made it possible for me to stay on top of my portfolio and make
@@ -183,8 +197,8 @@ const Testimonial = () => {
                     </div>
                     <div className="flex items-center gap-5 border-t border-solid border-gray-200 pt-5">
                       <Image
-                      width={40}
-                      height={40}
+                        width={40}
+                        height={40}
                         className="rounded-full h-10 w-10 object-cover"
                         src="https://pagedone.io/asset/uploads/1696229969.png"
                         alt="avatar"
@@ -193,7 +207,9 @@ const Testimonial = () => {
                         <h5 className="text-gray-900 dark:text-[#a4a3a3] font-medium transition-all duration-500  mb-1">
                           Jane D
                         </h5>
-                        <span className="text-sm leading-4 text-[#282828] dark:text-[#a4a3a3]">CEO </span>
+                        <span className="text-sm leading-4 text-[#282828] dark:text-[#a4a3a3]">
+                          CEO{" "}
+                        </span>
                       </div>
                     </div>
                     <BorderTrail
@@ -219,7 +235,9 @@ const Testimonial = () => {
                             fill="currentColor"
                           />
                         </svg>
-                        <span className="text-base font-semibold text-indigo-600 dark:text-[#a4a3a3]">4.9</span>
+                        <span className="text-base font-semibold text-indigo-600 dark:text-[#a4a3a3]">
+                          4.9
+                        </span>
                       </div>
                       <p className="text-base text-[#282828] dark:text-[#a4a3a3] leading-6  transition-all duration-500 pb-8  ">
                         Pagedone has made it possible for me to stay on top of my portfolio and make
@@ -228,8 +246,8 @@ const Testimonial = () => {
                     </div>
                     <div className="flex items-center gap-5 border-t border-solid border-gray-200 pt-5">
                       <Image
-                      width={40}
-                      height={40}
+                        width={40}
+                        height={40}
                         className="rounded-full h-10 w-10 object-cover"
                         src="https://pagedone.io/asset/uploads/1696229969.png"
                         alt="avatar"
@@ -238,7 +256,9 @@ const Testimonial = () => {
                         <h5 className="text-gray-900 dark:text-[#a4a3a3] font-medium transition-all duration-500  mb-1">
                           Jane D
                         </h5>
-                        <span className="text-sm leading-4 text-[#282828] dark:text-[#a4a3a3]">CEO </span>
+                        <span className="text-sm leading-4 text-[#282828] dark:text-[#a4a3a3]">
+                          CEO{" "}
+                        </span>
                       </div>
                     </div>
                     <BorderTrail
@@ -264,7 +284,9 @@ const Testimonial = () => {
                             fill="currentColor"
                           />
                         </svg>
-                        <span className="text-base font-semibold text-indigo-600 dark:text-[#a4a3a3]">4.9</span>
+                        <span className="text-base font-semibold text-indigo-600 dark:text-[#a4a3a3]">
+                          4.9
+                        </span>
                       </div>
                       <p className="text-base text-[#282828] dark:text-[#a4a3a3] leading-6  transition-all duration-500 pb-8  ">
                         Pagedone has made it possible for me to stay on top of my portfolio and make
@@ -273,8 +295,8 @@ const Testimonial = () => {
                     </div>
                     <div className="flex items-center gap-5 border-t border-solid border-gray-200 pt-5">
                       <Image
-                      width={40}
-                      height={40}
+                        width={40}
+                        height={40}
                         className="rounded-full h-10 w-10 object-cover"
                         src="https://pagedone.io/asset/uploads/1696229969.png"
                         alt="avatar"
@@ -283,7 +305,9 @@ const Testimonial = () => {
                         <h5 className="text-gray-900 dark:text-[#a4a3a3] font-medium transition-all duration-500  mb-1">
                           Jane D
                         </h5>
-                        <span className="text-sm leading-4 text-[#282828] dark:text-[#a4a3a3]">CEO </span>
+                        <span className="text-sm leading-4 text-[#282828] dark:text-[#a4a3a3]">
+                          CEO{" "}
+                        </span>
                       </div>
                     </div>
                     <BorderTrail
@@ -309,7 +333,9 @@ const Testimonial = () => {
                             fill="currentColor"
                           />
                         </svg>
-                        <span className="text-base font-semibold text-indigo-600 dark:text-[#a4a3a3]">4.9</span>
+                        <span className="text-base font-semibold text-indigo-600 dark:text-[#a4a3a3]">
+                          4.9
+                        </span>
                       </div>
                       <p className="text-base text-[#282828] dark:text-[#a4a3a3] leading-6  transition-all duration-500 pb-8  ">
                         Pagedone has made it possible for me to stay on top of my portfolio and make
@@ -318,8 +344,8 @@ const Testimonial = () => {
                     </div>
                     <div className="flex items-center gap-5 border-t border-solid border-gray-200 pt-5">
                       <Image
-                      width={40}
-                      height={40}
+                        width={40}
+                        height={40}
                         className="rounded-full h-10 w-10 object-cover"
                         src="https://pagedone.io/asset/uploads/1696229969.png"
                         alt="avatar"
@@ -328,7 +354,9 @@ const Testimonial = () => {
                         <h5 className="text-gray-900 dark:text-[#a4a3a3] font-medium transition-all duration-500  mb-1">
                           Jane D
                         </h5>
-                        <span className="text-sm leading-4 text-[#282828] dark:text-[#a4a3a3]">CEO </span>
+                        <span className="text-sm leading-4 text-[#282828] dark:text-[#a4a3a3]">
+                          CEO{" "}
+                        </span>
                       </div>
                     </div>
                     <BorderTrail
@@ -338,7 +366,6 @@ const Testimonial = () => {
                   </div>
                 </div>
               </CarouselItem>
-              
             </CarouselContent>
             <CarouselNavigation
               className="absolute -bottom-20 left-auto top-auto w-full justify-end gap-2"
