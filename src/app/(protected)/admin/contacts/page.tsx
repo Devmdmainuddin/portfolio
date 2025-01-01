@@ -1,30 +1,37 @@
 "use server";
 import React from "react";
 import Container from "@/components/shared/Container";
+import {fetchContacts} from "@/app/actions/actions";
+import {ChevronLeft, ChevronRight} from "lucide-react";
+// Trash2
+// import Image from "next/image";
+import ContactTable from "@/components/shared/ContactTable";
 
-import {ChevronLeft, ChevronRight, Eye, FilePenLine, Trash2} from "lucide-react";
-import Image from "next/image";
-import { fetchProjects} from "@/app/actions/actions";
-import Link from "next/link";
+const ContactPage = async () => {
+  const contacts = await fetchContacts();
+  console.log(contacts);
 
-const Project = async () => {
-  const project = await fetchProjects();
+  // const handleDelete = async (contactId: string) => {
+  //   const confirmDelete = window.confirm("Are you sure you want to delete this contact?");
+  //   if (!confirmDelete) return;
 
-// const hendleDelete = (id: string) => {
-//   deleteProject(id)
-//     .then((isDeleted) => {
-//       if (isDeleted) {
-//         console.log(`Project with ID ${id} deleted successfully.`);
-//       } else {
-//         console.log(`Failed to delete project with ID ${id}.`);
-//       }
-//     })
-//     .catch((error) => {
-//       console.error("Error:", error);
-//     });
-// };
+  //   try {
+  //     const response = await fetch(`/api/contacts?contactId=${contactId}`, {
+  //       method: "DELETE",
+  //     });
+  //     const result = await response.json();
 
-  
+  //     if (response.ok) {
+  //       alert(result.message);
+  //       window.location.reload(); // Reload to reflect updated list
+  //     } else {
+  //       alert(result.message);
+  //     }
+  //   } catch (error) {
+  //     console.error("Error deleting contact:", error);
+  //     alert("Failed to delete contact. Please try again.");
+  //   }
+  // };
 
   return (
     <div className="bg-[#D0EBEB] dark:bg-[#738188] capitalize">
@@ -32,54 +39,54 @@ const Project = async () => {
         <section className="py-8">
           <div className="container px-4 mx-auto">
             <div className="p-4 mb-6 bg-white shadow rounded overflow-x-auto">
-              <table className="table-auto w-full">
+              {/* <table className="table-auto w-full">
                 <thead>
                   <tr className="text-xs text-gray-500 text-left">
-                    <th className="pl-6 pb-3 font-medium">Project ID</th>
-                    <th className="pb-3 font-medium">image</th>
-                    <th className="pb-3 font-medium">title</th>
+                    <th className="pl-6 pb-3 font-medium">Contact ID</th>
+                    <th className="pb-3 font-medium">User</th>
                     <th className="pb-3 font-medium">Date</th>
+                    <th className="pb-3 font-medium">Message</th>
                     <th className="pb-3 font-medium">Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {project.map((item) => (
-                    <tr key={item._id} className="text-xs bg-gray-100 border-b border-gray-300 ">
-                      <td className="py-5 px-6 font-medium">#{item._id}</td>
-                      <td className="inline-block w-[120px] h-[120px]">
+                  {contacts.map((contact) => (
+                    <tr key={contact._id} className="text-xs bg-gray-100">
+                      <td className="py-5 px-6 font-medium">#{contact._id}</td>
+                      <td className="flex px-4 py-3">
                         <Image
-                          width={120}
-                          height={120}
-                          className="w-full h-full  object-cover rounded-sm"
-                          src={item.image}
+                          width={50}
+                          height={50}
+                          className="w-8 h-8 mr-4 object-cover rounded-sm"
+                          src="https://images.unsplash.com/photo-1559893088-c0787ebfc084?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
                           alt=""
                         />
-                      </td>
-                      <td className="font-medium">{item.title}</td>
-
-                      <td>
-                        <span className="inline-block py-1 px-2 ">
-                          {item.createdAt ? new Date(item.createdAt).toLocaleString() : "N/A"}
-                        </span>
-                      </td>
-                      <td>
-                        <div className="flex gap-1 items-center ">
-                          <Link className="inline-block" href="#">
-                            <Eye className="text-sm w-6 h-6 bg-red-100 p-1 rounded-sm" />
-                          </Link>
-                          <Link className="inline-block" href={`/project/${item._id}`}>
-                            <FilePenLine className="text-sm w-6 h-6 bg-red-100 p-1 rounded-sm" />
-                          </Link>
-
-                          <button  className="inline-block">
-                            <Trash2 className="text-sm w-6 h-6 bg-red-100 p-1 rounded-sm" />
-                          </button>
+                        <div>
+                          <p className="font-medium">
+                            {contact.firstName} {contact.lastName}
+                          </p>
+                          <p className="text-gray-500">
+                            <a href="#">{contact.email}</a>
+                          </p>
                         </div>
+                      </td>
+                      <td className="font-medium">
+                        {contact.createdAt ? new Date(contact.createdAt).toLocaleString() : "N/A"}
+                      </td>
+
+                      <td>
+                        <span className="inline-block py-1 px-2 ">{contact.message}</span>
+                      </td>
+                      <td>
+                        <button onClick={() => handleDelete(contact._id)} className="inline-block" >
+                          <Trash2 className="text-sm w-6 h-6 bg-red-100 p-1 rounded-full" />
+                        </button>
                       </td>
                     </tr>
                   ))}
                 </tbody>
-              </table>
+              </table> */}
+              <ContactTable contacts={contacts} />
             </div>
             <div className="flex flex-wrap -mx-4 items-center justify-between">
               <div className="w-full lg:w-1/3 px-4 flex items-center mb-4 lg:mb-0">
@@ -148,4 +155,4 @@ const Project = async () => {
   );
 };
 
-export default Project;
+export default ContactPage;

@@ -1,6 +1,7 @@
 import {NextRequest, NextResponse} from "next/server";
 import project from "./model";
 import {dbConnect} from "../helpers";
+import projectData from "@/lib/project";
 export async function POST(req: NextRequest) {
   try {
     await dbConnect();
@@ -57,7 +58,24 @@ export async function GET() {
     );
   }
 }
+// export const GET = async () =>{
+    
+//  try{
+//    await dbConnect();
+//     await project.deleteMany();
+//     const data = await project.insertMany(projectData);
+//      return NextResponse.json({success: true, data});
 
+//  }catch(err){
+//     console.log(err);
+//     return NextResponse.json(
+//         {
+//           success: false,
+//           message: "An error occurred while fetching the service. Please try again.",
+//         },
+//         {status: 500},)
+//  }
+// }
 // DELETE method to remove a contact by ID
 export async function DELETE(req: NextRequest) {
   try {

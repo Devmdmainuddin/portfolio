@@ -40,4 +40,3 @@ export async function GET() {
 }
 
 // DELETE method to remove a contact by ID
-

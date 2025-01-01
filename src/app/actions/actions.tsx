@@ -1,4 +1,4 @@
-import {IContact, IProject, Ireview} from "../(public)/httpActions/types";
+import {IContact, IProject, Ireview, IService} from "../httpActions/types";
 
 export const fetchContacts = async (): Promise<IContact[]> => {
   try {
@@ -41,13 +41,12 @@ export const fetchProjectById = async (id: string): Promise<IProject | null> => 
   }
 };
 
-
 export const addProject = async (newProjectData: Partial<IProject>): Promise<IProject | null> => {
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/projects`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(newProjectData),
     });
@@ -67,7 +66,7 @@ export const addProject = async (newProjectData: Partial<IProject>): Promise<IPr
 // export const editProject = async (projectId: string, updatedData: Partial<IProject>): Promise<IProject | null> => {
 //   try {
 //     const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/projects/${projectId}`, {
-//       method: 'PUT', 
+//       method: 'PUT',
 //       headers: {
 //         'Content-Type': 'application/json',
 //       },
@@ -88,21 +87,19 @@ export const addProject = async (newProjectData: Partial<IProject>): Promise<IPr
 export const deleteProject = async (projectId: string): Promise<boolean> => {
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/projects/${projectId}`, {
-      method: 'DELETE',
+      method: "DELETE",
     });
 
     if (!response.ok) {
       throw new Error(`Failed to delete project with ID: ${projectId}`);
     }
 
-    return true; // Return true if deletion was successful
+    return true; 
   } catch (error) {
     console.error("Error deleting project:", error);
-    return false; // Return false if deletion failed
+    return false; 
   }
 };
-
-
 
 export const fetchReviews = async (): Promise<Ireview[]> => {
   try {
@@ -114,6 +111,21 @@ export const fetchReviews = async (): Promise<Ireview[]> => {
     return data;
   } catch (error) {
     console.error("Error fetching Reviews:", error);
+    return [];
+  }
+};
+
+
+export const fetchServices = async (): Promise<IService[]> => {
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/service`);
+    if (!response.ok) {
+      throw new Error("Failed to fetch service data from server");
+    }
+    const data = await response.json();
+    return data.services;
+  } catch (error) {
+    console.error("Error fetching service:", error);
     return [];
   }
 };

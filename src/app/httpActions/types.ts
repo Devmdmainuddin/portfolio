@@ -29,3 +29,11 @@ export interface Ireview extends Document {
   comment: string;
   createdAt: Date;
 }
+
+export interface IService extends Document {
+  _id: string;
+  icon: string;
+  title: string;
+  description: string;
+  createdAt: Date;
+}

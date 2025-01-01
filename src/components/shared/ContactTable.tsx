@@ -1,25 +1,24 @@
 "use client";
 import React from "react";
-import { Trash2 } from "lucide-react";
+import {Trash2} from "lucide-react";
 import Image from "next/image";
-import { IContact } from "@/app/(public)/httpActions/types";
+import {IContact} from "@/app/httpActions/types";
 
-const ContactTable = ({ contacts }: { contacts: IContact[] }) => {
-
-const handleDelete = async (contactId: string) => {
+const ContactTable = ({contacts}: {contacts: IContact[]}) => {
+  const handleDelete = async (contactId: string) => {
     const confirmDelete = window.confirm("Are you sure you want to delete this contact?");
     if (!confirmDelete) return;
-  
+
     try {
       const response = await fetch(`/api/contact/${contactId}`, {
         method: "DELETE",
       });
-  
+
       const result = await response.json();
-  
+
       if (response.ok) {
         alert(result.message);
-        window.location.reload(); // Reload to reflect updated list
+        window.location.reload(); 
       } else {
         alert(result.message);
       }
@@ -28,7 +27,7 @@ const handleDelete = async (contactId: string) => {
       alert("Failed to delete contact. Please try again.");
     }
   };
-  
+
   return (
     <div className="p-4 mb-6 bg-white shadow rounded overflow-x-auto">
       <table className="table-auto w-full">

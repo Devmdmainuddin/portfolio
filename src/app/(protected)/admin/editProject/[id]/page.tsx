@@ -1,35 +1,33 @@
 "use client";
 
-import React, { useEffect } from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { ProjectFormData, projectSchema } from "@/app/validation/projectSchema";
+import React, {useEffect} from "react";
+import {useForm} from "react-hook-form";
+import {zodResolver} from "@hookform/resolvers/zod";
+import {ProjectFormData, projectSchema} from "@/app/validation/projectSchema";
 import Container from "@/components/shared/Container";
-import { BorderTrail } from "@/components/ui/border-trail";
-import { Magnetic } from "@/components/ui/magnetic";
-import { useRouter } from "next/navigation";
+import {BorderTrail} from "@/components/ui/border-trail";
+import {Magnetic} from "@/components/ui/magnetic";
+import {useRouter} from "next/navigation";
 
 interface EditProjectProps {
-  params?: { id: string } // Optional for editing
-  initialData?: ProjectFormData; // Existing project data
+  params?: {id: string}; 
+  initialData?: ProjectFormData; 
 }
 
-const EditProject: React.FC<EditProjectProps> = ({ params, initialData }) => {
-
-  console.log(params);
-  const projectId = params?.id; // Extract project ID from params if provided
+const EditProject: React.FC<EditProjectProps> = ({params, initialData}) => {
+  const projectId = params?.id; 
   const router = useRouter();
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: {errors},
     reset,
   } = useForm<ProjectFormData>({
     resolver: zodResolver(projectSchema),
-    defaultValues: initialData || {}, // Populate form with initial data if provided
+    defaultValues: initialData || {}, 
   });
 
-  // Populate form on initial render (for editing)
+
   useEffect(() => {
     if (initialData) reset(initialData);
   }, [initialData, reset]);
@@ -69,9 +67,7 @@ const EditProject: React.FC<EditProjectProps> = ({ params, initialData }) => {
     <div className="bg-[#D0EBEB] dark:bg-[#738188] capitalize py-12">
       <Container>
         <div className="borderTrail ">
-          <h2 className="text-2xl font-bold mb-4">
-            {projectId ? "Edit Project" : "Add Project"}
-          </h2>
+          <h2 className="text-2xl font-bold mb-4">{projectId ? "Edit Project" : "Add Project"}</h2>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="flex-1">

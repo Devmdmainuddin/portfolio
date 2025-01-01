@@ -7,7 +7,7 @@ export const projectSchema = z.object({
   description: z.string().nonempty("Description is required"),
   liveLink: z.string().url("Invalid URL for Live Link").nonempty("Live link is required"),
   clientLink: z.string().url("Invalid URL for Client Link").nonempty("Client link is required"),
-  serverLink: z.string().url("Invalid URL for Server Link").optional(),
+  serverLink: z.string().optional(),
   tags: z
     .string()
     .nonempty("Tags are required")

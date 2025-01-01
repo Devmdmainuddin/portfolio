@@ -33,7 +33,6 @@ const EditProject = ({params}: {params: Promise<{id: string}>}) => {
   useEffect(() => {
     const loadProject = async () => {
       const projectData = await fetchProjectById(id);
-      console.log(projectData);
       reset({
         title: projectData?.title || "",
         image: projectData?.image || "",
@@ -48,11 +47,16 @@ const EditProject = ({params}: {params: Promise<{id: string}>}) => {
     loadProject();
   }, [id, reset]);
   const onSubmit = async (data: ProjectFormData) => {
+    const projectData = {
+      ...data,
+      tags: data.tags.split(","),
+    };
+
     try {
       const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/projects/${id}`, {
         method: "PUT",
         headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(data),
+        body: JSON.stringify(projectData),
       });
 
       const result = await response.json();
@@ -150,7 +154,7 @@ const EditProject = ({params}: {params: Promise<{id: string}>}) => {
                     actionArea="global"
                     range={200}
                   >
-                    <span>Send Message</span>
+                    <span>Update</span>
                   </Magnetic>
                 </button>
               </Magnetic>
