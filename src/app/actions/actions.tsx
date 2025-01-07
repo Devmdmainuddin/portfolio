@@ -94,10 +94,10 @@ export const deleteProject = async (projectId: string): Promise<boolean> => {
       throw new Error(`Failed to delete project with ID: ${projectId}`);
     }
 
-    return true; 
+    return true;
   } catch (error) {
     console.error("Error deleting project:", error);
-    return false; 
+    return false;
   }
 };
 
@@ -114,7 +114,6 @@ export const fetchReviews = async (): Promise<Ireview[]> => {
     return [];
   }
 };
-
 
 export const fetchServices = async (): Promise<IService[]> => {
   try {

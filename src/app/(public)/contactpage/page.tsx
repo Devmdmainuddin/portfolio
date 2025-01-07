@@ -7,7 +7,6 @@ import Image from "next/image";
 
 const ContactPage = async () => {
   const contacts = await fetchContacts();
-  console.log(contacts);
   return (
     <div className="bg-[#D0EBEB] dark:bg-[#738188] capitalize">
       <Container>

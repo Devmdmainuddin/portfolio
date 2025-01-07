@@ -19,6 +19,7 @@ const Skills = () => {
     {id: 11, src: "/git.svg", alt: "GitLab"},
     {id: 12, src: "/nexauth.png", alt: "Docker"},
   ];
+
   return (
     <div className="bg-[#E7F6F9] dark:bg-[#132334] py-[84px]">
       <Container>

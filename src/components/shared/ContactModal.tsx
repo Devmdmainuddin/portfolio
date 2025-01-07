@@ -2,12 +2,14 @@ import React from "react";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
+  // DialogDescription,
+  // DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import ContactForm from "./Forms";
+
+import Form from "./Form";
 
 interface ContactModalProps {
   title: string;
@@ -20,12 +22,9 @@ const ContactModal: React.FC<ContactModalProps> = ({title}) => {
         <DialogTrigger className="btn capitalize">{title}</DialogTrigger>
         <DialogContent className="w-full max-w-md bg-white p-6 dark:bg-zinc-900">
           <DialogHeader>
-            <DialogTitle className="text-zinc-900 dark:text-white">Have any Questions?</DialogTitle>
-            <DialogDescription className="text-zinc-600 dark:text-zinc-400">
-              Meet me
-            </DialogDescription>
+            <DialogTitle className="text-zinc-900 dark:text-white"> </DialogTitle>
           </DialogHeader>
-          <ContactForm />
+          <Form />
         </DialogContent>
       </Dialog>
     </div>

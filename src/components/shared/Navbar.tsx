@@ -15,7 +15,6 @@ type NavLink = {
 
 const Navbar = () => {
   const pathName = usePathname();
-
   const navlink: NavLink[] = [
     {href: "/", text: "Home", icon: "/icn.png"},
     {href: "/about", text: "About", icon: "/icn.png"},
@@ -122,7 +121,7 @@ const Navbar = () => {
                 <SheetTrigger>
                   <Menu className="text-2xl -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50" />
                 </SheetTrigger>
-                <SheetContent >
+                <SheetContent>
                   <SheetHeader>
                     <SheetTitle>
                       <div>

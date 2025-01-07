@@ -1,8 +1,8 @@
 "use server";
 import React from "react";
 import Container from "@/components/shared/Container";
-import { fetchReviews } from "@/app/actions/actions";
-import { ChevronLeft, ChevronRight, Trash2 } from "lucide-react";
+import {fetchReviews} from "@/app/actions/actions";
+import {ChevronLeft, ChevronRight, Trash2} from "lucide-react";
 import Image from "next/image";
 
 const Reviews = async () => {
@@ -13,7 +13,6 @@ const Reviews = async () => {
       <Container>
         <section className="py-8">
           <div className="p-4 mb-6 bg-white shadow rounded ">
-        
             <div className="overflow-x-scroll w-[400px] sm:w-full">
               <table className="table-auto w-full">
                 <thead>

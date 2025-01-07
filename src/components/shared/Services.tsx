@@ -1,10 +1,10 @@
 "use server";
 import Container from "./Container";
 import ServiceCard from "../card/ServiceCard";
-import { fetchServices } from "@/app/actions/actions";
+import {fetchServices} from "@/app/actions/actions";
 
-const Services =async () => {
- const data = await fetchServices();
+const Services = async () => {
+  const data = await fetchServices();
   return (
     <div className="py-[120px] dark:bg-gradient-to-r dark:from-[#708188] dark:to-[#555F65] bg-gradient-to-r from-[#C3E4EE] to-white ">
       <Container>
@@ -16,9 +16,7 @@ const Services =async () => {
           exceptional results while working with Me.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-[50px]">
-          {data?.map((item, idx) => (
-            <ServiceCard key={idx} item={item} />
-          ))}
+          {data?.map((item, idx) => <ServiceCard key={idx} item={item} />)}
         </div>
       </Container>
     </div>

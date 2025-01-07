@@ -6,6 +6,7 @@ import Skills from "@/components/shared/Skills";
 import Project from "@/components/shared/Project";
 import Testimonial from "@/components/shared/Testimonial";
 import Services from "@/components/shared/Services";
+
 const Home = () => {
   return (
     <div>

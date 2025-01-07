@@ -1,11 +1,10 @@
 import Services from "@/components/shared/Services";
 import React from "react";
 
-const Service =  () => {
- 
+const Service = () => {
   return (
     <div className="">
-      <Services  />
+      <Services />
     </div>
   );
 };

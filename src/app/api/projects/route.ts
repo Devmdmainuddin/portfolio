@@ -1,7 +1,6 @@
 import {NextRequest, NextResponse} from "next/server";
 import project from "./model";
 import {dbConnect} from "../helpers";
-import projectData from "@/lib/project";
 export async function POST(req: NextRequest) {
   try {
     await dbConnect();
@@ -58,8 +57,9 @@ export async function GET() {
     );
   }
 }
+
 // export const GET = async () =>{
-    
+
 //  try{
 //    await dbConnect();
 //     await project.deleteMany();

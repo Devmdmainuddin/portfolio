@@ -9,6 +9,7 @@ const ProjectSchema = new mongoose.Schema(
     clientLink: {type: String, required: true},
     serverLink: {type: String},
     tags: {type: [String], default: []},
+    category: {type: String},
     createdAt: {type: Date, default: Date.now},
   },
   {

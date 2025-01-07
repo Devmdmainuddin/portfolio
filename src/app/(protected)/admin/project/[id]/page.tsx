@@ -27,6 +27,7 @@ const EditProject = ({params}: {params: Promise<{id: string}>}) => {
       liveLink: "",
       serverLink: "",
       tags: "",
+      category: "",
     },
   });
 
@@ -41,6 +42,7 @@ const EditProject = ({params}: {params: Promise<{id: string}>}) => {
         liveLink: projectData?.liveLink || "",
         serverLink: projectData?.serverLink || "",
         tags: projectData?.tags?.join(", ") || "",
+        category: projectData?.category || "",
       });
     };
 
@@ -58,10 +60,7 @@ const EditProject = ({params}: {params: Promise<{id: string}>}) => {
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(projectData),
       });
-
       const result = await response.json();
-      console.log(result);
-
       if (result.success) {
         alert("Project updated successfully!");
       } else {
@@ -139,6 +138,19 @@ const EditProject = ({params}: {params: Promise<{id: string}>}) => {
                 placeholder="e.g., React, Tailwind, MongoDB"
               />
               {errors.tags && <p className="text-red-500">{errors.tags.message}</p>}
+            </div>
+            <div className="mt-4">
+              <select
+                {...register("category")}
+                className="w-full p-2 border-b border-gray-300 outline-0"
+              >
+                <option value="">Select Category</option>
+                <option value="Ecommerce">Ecommerce</option>
+                <option value="Blogs">Blogs</option>
+                <option value="Travels">Travels</option>
+                <option value="Portfolio">Portfolio</option>
+              </select>
+              {errors.category && <p className="text-red-500">{errors.category.message}</p>}
             </div>
             <div className="my-6 ">
               <Magnetic

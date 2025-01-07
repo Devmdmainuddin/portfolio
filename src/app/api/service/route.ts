@@ -1,11 +1,7 @@
-
-import { dbConnect } from "../helpers";
+import {dbConnect} from "../helpers";
 import service from "./model";
 // import services from '../../../lib/service'
-import { NextResponse } from "next/server";
-
-
-
+import {NextResponse} from "next/server";
 
 export async function GET() {
   try {
@@ -25,7 +21,7 @@ export async function GET() {
 }
 
 // export const GET = async () =>{
-    
+
 //  try{
 //    await dbConnect();
 //     await service.deleteMany();

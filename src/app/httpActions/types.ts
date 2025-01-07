@@ -7,6 +7,7 @@ export interface IProject extends Document {
   clientLink: string;
   serverLink?: string;
   tags: string[];
+  category: string;
   createdAt: Date;
 }
 

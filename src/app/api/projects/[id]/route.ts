@@ -5,8 +5,8 @@ import {dbConnect} from "../../helpers";
 export async function PUT(req: NextRequest) {
   try {
     await dbConnect();
-    const {title, image, description, liveLink, clientLink, serverLink, tags} = await req.json();
-
+    const {title, image, description, liveLink, clientLink, serverLink, tags, category} =
+      await req.json();
     const projectId = req.nextUrl.pathname.split("/")[3];
 
     if (!projectId) {
@@ -27,6 +27,7 @@ export async function PUT(req: NextRequest) {
     existingProject.clientLink = clientLink || existingProject.clientLink;
     existingProject.serverLink = serverLink || existingProject.serverLink;
     existingProject.tags = tags || existingProject.tags;
+    existingProject.category = category || existingProject.category;
 
     await existingProject.save();
 
@@ -49,18 +50,12 @@ export async function PUT(req: NextRequest) {
 export async function DELETE(req: NextRequest) {
   try {
     await dbConnect();
-    console.log("Database connected successfully.");
-    const projecttId = req.url.split("/").pop(); 
-
-    console.log("Request to delete Project with ID:", projecttId);
-
+    const projecttId = req.url.split("/").pop();
     if (!projecttId) {
       return NextResponse.json({message: "Contact ID is required."}, {status: 400});
     }
 
     const deletedProject = await project.findByIdAndDelete(projecttId);
-    console.log("Deleted contact:", deletedProject);
-
     if (!deletedProject) {
       return NextResponse.json({message: "project not found."}, {status: 404});
     }

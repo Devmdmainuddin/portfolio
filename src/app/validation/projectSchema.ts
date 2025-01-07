@@ -12,6 +12,7 @@ export const projectSchema = z.object({
     .string()
     .nonempty("Tags are required")
     .refine((tags) => tags.split(",").length > 0, "Tags must include at least one item"),
+  category: z.string().nonempty("Category is required"),
 });
 
 export type ProjectFormData = z.infer<typeof projectSchema>;

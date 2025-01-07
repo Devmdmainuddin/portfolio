@@ -1,18 +1,9 @@
 "use client";
 import {Magnetic} from "../ui/magnetic";
 import {useForm} from "react-hook-form";
-import {z} from "zod";
+
 import {zodResolver} from "@hookform/resolvers/zod";
-
-const contactFormSchema = z.object({
-  firstName: z.string().min(1, "First name is required"),
-  lastName: z.string().min(1, "Last name is required"),
-  email: z.string().email("Invalid email address").min(1, "Email is required"),
-  phone: z.string().min(1, "Phone number is required"),
-  message: z.string().min(1, "Message is required"),
-});
-
-type ContactFormData = z.infer<typeof contactFormSchema>;
+import {ContactFormData, contactFormSchema} from "@/app/validation/contactSchema";
 
 const Form = () => {
   const springOptions = {bounce: 0.1};

@@ -110,6 +110,20 @@ const AddProjectForm = () => {
               />
               {errors.tags && <p className="text-red-500">{errors.tags.message}</p>}
             </div>
+            <div className="mt-4">
+              <select
+                {...register("category")}
+                className="w-full p-2 border-b border-gray-300 outline-0"
+              >
+                <option value="">Select Category</option>
+                <option value="Ecommerce">Ecommerce</option>
+                <option value="Blogs">Blogs</option>
+                <option value="Travels">Travels</option>
+                <option value="Portfolio">Portfolio</option>
+              </select>
+              {errors.category && <p className="text-red-500">{errors.category.message}</p>}
+            </div>
+
             <div className="mt-[30px]">
               <Magnetic
                 intensity={0.2}

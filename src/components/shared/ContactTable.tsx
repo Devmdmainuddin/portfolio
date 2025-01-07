@@ -18,7 +18,7 @@ const ContactTable = ({contacts}: {contacts: IContact[]}) => {
 
       if (response.ok) {
         alert(result.message);
-        window.location.reload(); 
+        window.location.reload();
       } else {
         alert(result.message);
       }

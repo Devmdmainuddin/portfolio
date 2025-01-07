@@ -205,4 +205,4 @@ const projectData = [
     createAt: "2024-11-12T10:43:35.637Z",
   },
 ];
-export default projectData
+export default projectData;

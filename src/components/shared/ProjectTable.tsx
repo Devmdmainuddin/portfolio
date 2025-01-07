@@ -1,26 +1,26 @@
-"use client"
-import { IProject } from "@/app/httpActions/types";
-import { deleteProject } from "@/app/actions/actions";
+"use client";
+import {IProject} from "@/app/httpActions/types";
+import {deleteProject} from "@/app/actions/actions";
 import {Eye, FilePenLine, Trash2} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const ProjectTable = ({ item }: { item: IProject }) => {
-    const handleDelete = async (projectId: string) => {
-        const confirmDelete = window.confirm("Are you sure you want to delete this project?");
-        if (!confirmDelete) return;
-    
-        const success = await deleteProject(projectId);
-    
-        if (success) {
-          alert("Project deleted successfully!");
-          // Optional: Update UI to reflect deleted project without page reload
-          window.location.reload();
-        } else {
-          alert("Failed to delete the project.");
-        }
-      };
+const ProjectTable = ({item}: {item: IProject}) => {
+  const handleDelete = async (projectId: string) => {
+    const confirmDelete = window.confirm("Are you sure you want to delete this project?");
+    if (!confirmDelete) return;
+
+    const success = await deleteProject(projectId);
+
+    if (success) {
+      alert("Project deleted successfully!");
+      // Optional: Update UI to reflect deleted project without page reload
+      window.location.reload();
+    } else {
+      alert("Failed to delete the project.");
+    }
+  };
   return (
     <tr className="text-xs bg-gray-100 border-b border-gray-300 ">
       <td className="py-5 px-6 font-medium">#{item._id}</td>
