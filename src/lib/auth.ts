@@ -1,16 +1,16 @@
-import bcrypt  from 'bcrypt';
-import { NextAuthOptions } from "next-auth";
+import bcrypt from "bcrypt";
+import {NextAuthOptions} from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import UserModel from "../app/api/auth/registation/model";
-import { dbConnect } from '@/app/api/helpers';
+import {dbConnect} from "@/app/api/helpers";
 
 export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       name: "Credentials",
       credentials: {
-        email: { label: "Email", type: "text" },
-        password: { label: "Password", type: "password" },
+        email: {label: "Email", type: "text"},
+        password: {label: "Password", type: "password"},
       },
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) {
@@ -19,16 +19,13 @@ export const authOptions: NextAuthOptions = {
 
         try {
           await dbConnect();
-        const user = await UserModel.findOne({ email: credentials.email });
+          const user = await UserModel.findOne({email: credentials.email});
 
           if (!user) {
             throw new Error("No user found with this email");
           }
 
-          const isValid = await bcrypt.compare(
-            credentials.password,
-            user.password
-          );
+          const isValid = await bcrypt.compare(credentials.password, user.password);
 
           if (!isValid) {
             throw new Error("Invalid password");
@@ -47,14 +44,14 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    async jwt({ token, user }) {
+    async jwt({token, user}) {
       if (user) {
         token.role = user.role;
         token.id = user.id;
       }
       return token;
     },
-    async session({ session, token }) {
+    async session({session, token}) {
       if (session.user) {
         session.user.role = token.role as string;
         session.user.id = token.id as string;

@@ -3,34 +3,33 @@
 // import {DefaultUser} from "next-auth";
 // import {DefaultSession} from "next-auth";
 
-
 // declare module "next-auth" {
 //   interface User extends DefaultUser {
-//     type: string; 
+//     type: string;
 //   }
 
 //   interface Session extends DefaultSession {
 //     user: {
-//       type: string; 
+//       type: string;
 //     };
 //   }
 // }
 
 // src/types/next-auth.d.ts
 
-import { DefaultJWT } from "next-auth/jwt";
-import { DefaultSession } from "next-auth";
+import {DefaultJWT} from "next-auth/jwt";
+import {DefaultSession} from "next-auth";
 
 declare module "next-auth" {
   interface Session {
     user: {
-      role:string;
-      id:string;
-      type?: string;
+      role: string;
+      id: string;
+      role?: string;
     } & DefaultSession["user"];
   }
-  interface User{
-    role:string;
+  interface User {
+    role: string;
   }
 }
 

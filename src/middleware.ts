@@ -14,15 +14,14 @@ export const middleware = async (request: NextRequest) => {
 
 export const config = {
   matcher: [
-    // "/admin",
-    // "/admin/addProject",
-    // "/admin/project",
-    // "/admin/contacts",
-    // "/admin/reviews",
-    // "/admin/project/[id]",
+    "/admin",
+    "/admin/addProject",
+    "/admin/project",
+    "/admin/contacts",
+    "/admin/reviews",
+    "/admin/project/[id]",
   ],
 };
-
 
 // import { withAuth } from "next-auth/middleware";
 // import { NextResponse } from "next/server";
@@ -53,7 +52,7 @@ export const config = {
 //           pathname.startsWith("/api/projects") ||
 //           pathname.startsWith("/projects") ||
 //           pathname.startsWith("/about") ||
-//           pathname.startsWith("/contact") 
+//           pathname.startsWith("/contact")
 //         ) {
 //           return true;
 //         }

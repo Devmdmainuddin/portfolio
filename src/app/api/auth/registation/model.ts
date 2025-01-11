@@ -1,4 +1,4 @@
-import mongoose , { Schema, model, models } from "mongoose";
+import mongoose, {Schema, model, models} from "mongoose";
 import bcrypt from "bcrypt";
 
 export interface IUser extends Document {
@@ -18,7 +18,7 @@ const userSchema = new Schema<IUser>(
     email: {type: String, required: true, unique: true},
     password: {type: String, required: true},
     // type: {type: String, required: true},
-    role: { type: String, enum: ["user", "admin"], default: "user" },
+    role: {type: String, enum: ["user", "admin"], default: "user"},
   },
   {timestamps: true},
 );
@@ -29,4 +29,4 @@ userSchema.pre("save", async function (next) {
 });
 
 const User = models?.User || model<IUser>("User", userSchema);
-export default User
+export default User;

@@ -2,7 +2,7 @@ import {IContact, IProject, Ireview, IService} from "../httpActions/types";
 
 export const fetchContacts = async (): Promise<IContact[]> => {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/contact`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/contact`);
     if (!response.ok) {
       throw new Error("Failed to fetch contacts");
     }
@@ -16,7 +16,7 @@ export const fetchContacts = async (): Promise<IContact[]> => {
 
 export const fetchProjects = async (): Promise<IProject[]> => {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/projects`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/projects`);
     if (!response.ok) {
       throw new Error("Failed to fetch Project data from server");
     }
@@ -29,7 +29,7 @@ export const fetchProjects = async (): Promise<IProject[]> => {
 };
 export const fetchProjectById = async (id: string): Promise<IProject | null> => {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/projects/${id}`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/projects/${id}`);
     if (!response.ok) {
       throw new Error("Failed to fetch project data");
     }
@@ -43,7 +43,7 @@ export const fetchProjectById = async (id: string): Promise<IProject | null> => 
 
 export const addProject = async (newProjectData: Partial<IProject>): Promise<IProject | null> => {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/projects`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/projects`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -86,7 +86,7 @@ export const addProject = async (newProjectData: Partial<IProject>): Promise<IPr
 // };
 export const deleteProject = async (projectId: string): Promise<boolean> => {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/projects/${projectId}`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/projects/${projectId}`, {
       method: "DELETE",
     });
 
@@ -103,7 +103,7 @@ export const deleteProject = async (projectId: string): Promise<boolean> => {
 
 export const fetchReviews = async (): Promise<Ireview[]> => {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/review`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/review`);
     if (!response.ok) {
       throw new Error("Failed to fetch Reviews data from server");
     }
@@ -117,13 +117,13 @@ export const fetchReviews = async (): Promise<Ireview[]> => {
 
 export const fetchServices = async (): Promise<IService[]> => {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/services`);
-    
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/services`);
+
     if (!response.ok) {
       throw new Error("Failed to fetch service data from server");
     }
     const data = await response.json();
-    
+
     return data.data;
   } catch (error) {
     console.error("Error fetching service:", error);
