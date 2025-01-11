@@ -19,7 +19,7 @@ const Form = () => {
 
   const onSubmit = async (data: ContactFormData) => {
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

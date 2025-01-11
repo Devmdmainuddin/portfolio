@@ -14,7 +14,7 @@ export default function ReviewForm() {
   });
 
   const onSubmit = async (data: ReviewFormValues) => {
-    const response = await fetch("/api/review", {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/review`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

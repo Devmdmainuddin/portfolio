@@ -10,7 +10,7 @@ const ContactTable = ({contacts}: {contacts: IContact[]}) => {
     if (!confirmDelete) return;
 
     try {
-      const response = await fetch(`/api/contact/${contactId}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/contact/${contactId}`, {
         method: "DELETE",
       });
 
