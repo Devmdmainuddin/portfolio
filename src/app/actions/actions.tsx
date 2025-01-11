@@ -117,10 +117,11 @@ export const fetchReviews = async (): Promise<Ireview[]> => {
 
 export const fetchServices = async (): Promise<IService[]> => {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/services`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/service`);
 
     if (!response.ok) {
       throw new Error("Failed to fetch service data from server");
+      
     }
     const data = await response.json();
 

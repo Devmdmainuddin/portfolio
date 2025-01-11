@@ -10,7 +10,6 @@ import {fetchContacts} from "@/app/actions/actions";
 //   };
 // }
 
-
 import ContactTable from "@/components/shared/ContactTable";
 
 const ContactPage = async () => {
@@ -23,7 +22,6 @@ const ContactPage = async () => {
             <div className="p-4 mb-6 bg-white shadow rounded overflow-x-auto">
               <ContactTable contacts={contacts} />
             </div>
-           
           </div>
         </section>
       </Container>

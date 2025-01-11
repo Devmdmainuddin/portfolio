@@ -9,6 +9,7 @@ export interface IProject extends Document {
   tags: string[];
   category: string;
   createdAt: Date;
+  updatedAt:Date;
 }
 
 export interface IContact extends Document {
